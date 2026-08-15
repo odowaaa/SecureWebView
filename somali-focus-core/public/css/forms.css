@@ -1,0 +1,33 @@
+/* Minimal, theme-agnostic baseline so plugin forms remain usable even
+   without the Somali Focus theme's design system loaded. */
+.sf-form-wrapper { max-width: 640px; }
+.sf-field { margin: 0 0 1rem; }
+.sf-field label { display: block; font-weight: 600; margin-bottom: .35rem; }
+.sf-field input,
+.sf-field select,
+.sf-field textarea {
+	width: 100%;
+	padding: .65rem .8rem;
+	border: 1px solid #ccd0d4;
+	border-radius: 4px;
+	font: inherit;
+	box-sizing: border-box;
+}
+.sf-field--honeypot { position: absolute !important; left: -9999px !important; top: -9999px !important; height: 0; overflow: hidden; }
+.sf-btn {
+	display: inline-block;
+	padding: .75rem 1.5rem;
+	border: 0;
+	border-radius: 4px;
+	font-weight: 600;
+	cursor: pointer;
+}
+.sf-btn--primary { background: #0B4A8F; color: #fff; }
+.sf-btn--primary:hover { background: #093a70; }
+.sf-btn[disabled] { opacity: .6; cursor: not-allowed; }
+.sf-form-notice { padding: .85rem 1rem; border-radius: 4px; margin-bottom: 1.25rem; font-weight: 500; }
+.sf-form-notice--success { background: #e6f4ea; color: #1e4620; border: 1px solid #b7dfc0; }
+.sf-form-notice--error { background: #fbe9e9; color: #7a1f1f; border: 1px solid #f0bcbc; }
+.sf-stats-fallback { display: flex; flex-wrap: wrap; gap: 2rem; }
+.sf-stat-fallback { text-align: center; }
+.sf-stat-fallback__number { display: block; font-size: 2rem; font-weight: 700; }

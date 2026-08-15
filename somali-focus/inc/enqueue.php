@@ -1,0 +1,69 @@
+<?php
+/**
+ * Asset enqueueing: styles, scripts, fonts.
+ *
+ * @package SomaliFocus
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Enqueue front-end assets.
+ */
+function somali_focus_scripts() {
+	// Self-hosted-friendly Google Fonts (Plus Jakarta Sans + Merriweather) with display swap.
+	wp_enqueue_style(
+		'somali-focus-fonts',
+		'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap',
+		array(),
+		null
+	);
+
+	wp_enqueue_style( 'somali-focus-style', get_stylesheet_uri(), array(), SOMALI_FOCUS_VERSION );
+
+	wp_enqueue_style(
+		'somali-focus-main',
+		SOMALI_FOCUS_URI . '/assets/css/main.css',
+		array( 'somali-focus-style' ),
+		SOMALI_FOCUS_VERSION
+	);
+
+	wp_enqueue_script(
+		'somali-focus-main',
+		SOMALI_FOCUS_URI . '/assets/js/main.js',
+		array(),
+		SOMALI_FOCUS_VERSION,
+		true
+	);
+	wp_script_add_data( 'somali-focus-main', 'defer', true );
+
+	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+		wp_enqueue_script( 'comment-reply' );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'somali_focus_scripts' );
+
+/**
+ * Enqueue block-editor styling so Gutenberg content matches the front end.
+ */
+function somali_focus_editor_assets() {
+	wp_enqueue_style(
+		'somali-focus-editor-style',
+		SOMALI_FOCUS_URI . '/assets/css/editor-style.css',
+		array(),
+		SOMALI_FOCUS_VERSION
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'somali_focus_editor_assets' );
+add_editor_style( 'assets/css/editor-style.css' );
+
+/**
+ * Preload the wordmark + hero visuals for better LCP.
+ */
+function somali_focus_resource_hints() {
+	echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
+	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+}
+add_action( 'wp_head', 'somali_focus_resource_hints', 1 );

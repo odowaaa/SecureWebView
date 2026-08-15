@@ -1,0 +1,15 @@
+/* Plain styling for the plugin's fallback archive/single templates —
+   only loaded when the active theme has no matching template of its own. */
+.sf-fallback { max-width: 960px; margin: 0 auto; padding: 3rem 1.25rem; }
+.sf-fallback__header { margin-bottom: 2rem; }
+.sf-fallback__title { font-size: 2rem; margin: 0 0 .5rem; }
+.sf-fallback-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+.sf-fallback-card { border: 1px solid #ddd; border-radius: 6px; overflow: hidden; }
+.sf-fallback-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+.sf-fallback-card__body { padding: 1rem; }
+.sf-fallback-card__title { margin: 0 0 .5rem; font-size: 1.1rem; }
+.sf-fallback-card__title a { text-decoration: none; color: inherit; }
+.sf-fallback-card__meta { font-size: .85rem; color: #666; margin-bottom: .5rem; }
+.sf-fallback-single__meta { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: .75rem 1.5rem; }
+.sf-fallback-single__meta li strong { display: block; font-size: .8rem; text-transform: uppercase; color: #888; }
+.sf-fallback__content { line-height: 1.7; }

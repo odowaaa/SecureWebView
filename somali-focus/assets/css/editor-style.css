@@ -1,0 +1,8 @@
+/* Approximate the front-end typography inside the block editor. */
+body {
+	font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	color: #22282F;
+}
+h1, h2, h3, h4, h5, h6 { color: #0A1F33; font-weight: 700; }
+.wp-block-quote { border-left: 3px solid #C8102E; font-family: 'Merriweather', Georgia, serif; font-style: italic; }
+a { color: #0B4A8F; }

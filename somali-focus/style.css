@@ -1,0 +1,18 @@
+/*
+Theme Name: Somali Focus
+Theme URI: https://somalifocus.org
+Author: Somali Focus
+Author URI: https://somalifocus.org
+Description: A premium, production-ready WordPress theme for Somali Focus — a professional Training, Advisory & Research organization. Built with modern PHP, semantic HTML5, vanilla JavaScript and a custom design system. Translation-ready, accessible and SEO-friendly.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+Tested up to: 6.6
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: somali-focus
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, accessibility-ready, block-styles, wide-blocks
+
+Somali Focus WordPress theme. All design tokens live in assets/css/main.css;
+this file only carries the required theme header comment for WordPress.
+*/
