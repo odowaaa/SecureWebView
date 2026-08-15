@@ -144,13 +144,8 @@ p:last-child { margin-bottom: 0; }
 .site-branding__link { display: inline-flex; align-items: center; }
 .custom-logo { max-height: 56px; width: auto; transition: max-height var(--sf-transition); }
 .site-header.is-scrolled .custom-logo { max-height: 42px; }
-
-.sf-wordmark { display: inline-flex; align-items: center; gap: 0.6rem; }
-.sf-wordmark__mark { width: 40px; height: 40px; flex-shrink: 0; }
-.sf-wordmark__text { display: flex; flex-direction: column; line-height: 1.15; }
-.sf-wordmark__name { font-weight: 800; font-size: 1.15rem; color: var(--sf-navy); }
-.sf-wordmark__tagline { font-size: 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--sf-gray-600); }
-.sf-wordmark--footer .sf-wordmark__name { color: var(--sf-white); font-size: 1.3rem; }
+.sf-default-logo--footer { max-height: 40px; }
+.site-footer__logo { display: inline-block; margin-bottom: 1.25rem; }
 
 .primary-navigation { flex: 1; display: flex; justify-content: center; }
 .primary-menu { display: flex; align-items: center; gap: 0.25rem; }

@@ -32,9 +32,12 @@ $sf_socials = array(
 					<?php if ( has_custom_logo() ) : ?>
 						<?php the_custom_logo(); ?>
 					<?php else : ?>
-						<span class="sf-wordmark sf-wordmark--footer">
-							<span class="sf-wordmark__name"><?php echo esc_html( $sf_org_name ); ?></span>
-						</span>
+						<img
+							class="custom-logo sf-default-logo sf-default-logo--footer"
+							src="<?php echo esc_url( SOMALI_FOCUS_URI . '/assets/images/logo-horizontal.png' ); ?>"
+							alt="<?php echo esc_attr( $sf_org_name ); ?>"
+							width="781" height="120"
+						>
 					<?php endif; ?>
 				</a>
 				<p class="footer-col__text"><?php echo esc_html( sf_theme_option( 'tagline', __( 'Training, Advisory & Research', 'somali-focus' ) ) ); ?></p>

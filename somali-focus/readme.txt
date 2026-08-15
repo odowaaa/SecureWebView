@@ -41,8 +41,10 @@ accessibility-conscious and compatible with Yoast SEO / Rank Math.
 4. Appearance → Customize → Menus: create and assign a **Primary Menu**
    (Home, About, Training, Advisory, Research, Insights, Experts,
    Contact) and optionally a **Footer Menu** and **Legal Menu**.
-5. Appearance → Customize → Site Identity: upload the real Somali Focus
-   logo (do not use the placeholder wordmark in production).
+5. The real Somali Focus logo is bundled and displays automatically —
+   nothing to do here. Only visit Appearance → Customize → Site
+   Identity if you want to override it with a different or
+   higher-resolution logo file.
 6. Create pages and assign the bundled page templates under
    Page Attributes → Template:
    - About Page → `/about/`

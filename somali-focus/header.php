@@ -27,17 +27,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php if ( has_custom_logo() ) : ?>
 					<?php the_custom_logo(); ?>
 				<?php else : ?>
-					<span class="sf-wordmark">
-						<svg class="sf-wordmark__mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-							<rect x="6" y="24" width="9" height="18" fill="var(--sf-blue)"/>
-							<rect x="19" y="14" width="9" height="28" fill="var(--sf-red)"/>
-							<rect x="32" y="6" width="9" height="36" fill="var(--sf-blue)"/>
-						</svg>
-						<span class="sf-wordmark__text">
-							<span class="sf-wordmark__name"><?php bloginfo( 'name' ); ?></span>
-							<span class="sf-wordmark__tagline"><?php echo esc_html( sf_theme_option( 'tagline', __( 'Training, Advisory & Research', 'somali-focus' ) ) ); ?></span>
-						</span>
-					</span>
+					<img
+						class="custom-logo sf-default-logo"
+						src="<?php echo esc_url( SOMALI_FOCUS_URI . '/assets/images/logo-horizontal.png' ); ?>"
+						alt="<?php echo esc_attr( sf_theme_option( 'org_name', get_bloginfo( 'name' ) ) ); ?>"
+						width="781" height="120"
+					>
 				<?php endif; ?>
 			</a>
 		</div>

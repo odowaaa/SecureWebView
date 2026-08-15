@@ -67,3 +67,16 @@ function somali_focus_resource_hints() {
 	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
 }
 add_action( 'wp_head', 'somali_focus_resource_hints', 1 );
+
+/**
+ * Favicon fallback: the bundled Somali Focus mark, used only until the
+ * administrator sets a proper Site Icon under Customize → Site Identity
+ * (WordPress core then handles favicon output itself).
+ */
+function somali_focus_favicon_fallback() {
+	if ( has_site_icon() || is_admin() ) {
+		return;
+	}
+	echo '<link rel="icon" href="' . esc_url( SOMALI_FOCUS_URI . '/assets/images/site-icon.png' ) . '" sizes="512x512">' . "\n";
+}
+add_action( 'wp_head', 'somali_focus_favicon_fallback', 2 );

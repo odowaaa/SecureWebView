@@ -155,6 +155,10 @@ assets/
   css/editor-style.css         Approximates the front end inside Gutenberg
   js/main.js                   Sticky header, mobile nav, scroll-reveal, counters —
                                vanilla JS, no dependencies
+  images/logo-horizontal.png   Bundled real logo — header/footer default
+  images/logo-full.png         Bundled real logo — stacked mark + wordmark + tagline
+  images/logo-mark.png         Bundled real logo — mark only
+  images/site-icon.png         Bundled real logo — favicon fallback (512×512)
 ```
 
 ### Design tokens (`assets/css/main.css`)
@@ -170,15 +174,21 @@ Typography: **Plus Jakarta Sans** (UI, body, nav) + **Merriweather**
 (hero headline, section titles, testimonials) — loaded via
 `inc/enqueue.php`.
 
-### Branding note — the real logo
+### Branding — the real logo is bundled
 
-The header/footer fall back to a plain generic wordmark (theme name +
-tagline, with an abstract bar-glyph — deliberately *not* a recreation
-of the real Somali Focus mark) whenever no custom logo is set. Upload
-the actual Somali Focus logo file via **Appearance → Customize → Site
-Identity → Logo** — this is the theme's only supported way of
-displaying the brand mark, so the real, unaltered logo file is always
-what appears once configured.
+The actual Somali Focus logo (the red checkmark/swoosh mark with the
+"SomaliFocus" wordmark) ships inside the theme at
+`assets/images/logo-horizontal.png`, `logo-full.png` and
+`logo-mark.png`, each with the background removed so they sit cleanly
+on both light and dark sections. It displays automatically in the
+header and footer — no setup required.
+
+To override it (e.g. with an updated or higher-resolution version),
+upload a new file via **Appearance → Customize → Site Identity →
+Logo**; WordPress's native Custom Logo always takes priority over the
+bundled default. A matching favicon derived from the same mark is
+bundled too (`assets/images/site-icon.png`) and is used automatically
+until a **Site Icon** is set in the same Customizer panel.
 
 ### Customizer vs. Plugin Settings — what goes where
 
