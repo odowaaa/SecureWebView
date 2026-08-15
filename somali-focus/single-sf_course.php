@@ -127,6 +127,30 @@ while ( have_posts() ) :
 			</section>
 		<?php endif; ?>
 
+		<?php
+		$sf_related = sf_theme_get_courses( 4 );
+		$sf_related = array_values( array_filter( $sf_related, function ( $sf_p ) use ( $sf_id ) {
+			return $sf_p->ID !== $sf_id;
+		} ) );
+		$sf_related = array_slice( $sf_related, 0, 3 );
+		if ( ! empty( $sf_related ) ) :
+			?>
+			<section class="content-highlight sf-reveal">
+				<div class="container">
+					<header class="section-header">
+						<div><h2 class="section-title"><?php esc_html_e( 'Related Courses', 'somali-focus' ); ?></h2></div>
+					</header>
+					<div class="card-grid card-grid--3">
+						<?php foreach ( $sf_related as $sf_related_course ) : ?>
+							<?php get_template_part( 'template-parts/course-card', null, array( 'post' => $sf_related_course ) ); ?>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			</section>
+			<?php
+		endif;
+		?>
+
 	</article>
 	<?php
 endwhile;

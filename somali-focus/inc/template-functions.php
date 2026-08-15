@@ -25,11 +25,14 @@ function sf_reading_time( $post = null ) {
 }
 
 /**
- * Simple breadcrumb trail. Renders nothing on the front page.
+ * Build the breadcrumb trail items for the current request. Shared by the
+ * visible breadcrumb nav and the BreadcrumbList structured data output.
+ *
+ * @return array[] Each item: label, url (empty string for the current page).
  */
-function sf_breadcrumbs() {
-	if ( is_front_page() || ! sf_breadcrumbs_enabled() ) {
-		return;
+function sf_get_breadcrumb_items() {
+	if ( is_front_page() ) {
+		return array();
 	}
 
 	$items = array(
@@ -53,6 +56,22 @@ function sf_breadcrumbs() {
 		$items[] = array( 'label' => __( 'Page Not Found', 'somali-focus' ), 'url' => '' );
 	} elseif ( is_page() ) {
 		$items[] = array( 'label' => get_the_title(), 'url' => '' );
+	}
+
+	return $items;
+}
+
+/**
+ * Simple breadcrumb trail. Renders nothing on the front page.
+ */
+function sf_breadcrumbs() {
+	if ( ! sf_breadcrumbs_enabled() ) {
+		return;
+	}
+
+	$items = sf_get_breadcrumb_items();
+	if ( empty( $items ) ) {
+		return;
 	}
 
 	echo '<nav class="sf-breadcrumbs" aria-label="' . esc_attr__( 'Breadcrumb', 'somali-focus' ) . '"><ol class="sf-breadcrumbs__list">';

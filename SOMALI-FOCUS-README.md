@@ -16,6 +16,21 @@ was pre-configured against this repo. If you'd rather they live in
 their own repository, just copy both folders out; neither depends on
 anything else in this codebase.
 
+## What's new in 1.5
+
+* The real Somali Focus logo ships as the default header/footer/favicon
+  asset (background removed, cropped into header/footer/mark variants).
+* Desktop dropdown submenus now open on tap/click/keyboard, not just
+  mouse hover.
+* JSON-LD structured data: Organization, BreadcrumbList, Course (on
+  training pages) and Article (on Insights posts) schema.
+* Related Courses on single course pages; previous/next navigation on
+  single Insights posts.
+* Real `languages/somali-focus.pot` translation templates in both
+  packages (was a placeholder instructions file in 1.0).
+
+See each package's `readme.txt` for the full changelog.
+
 ## Why two packages?
 
 If `somali-focus` were ever swapped for a different theme, every

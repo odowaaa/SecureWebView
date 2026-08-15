@@ -18,6 +18,40 @@
 		window.addEventListener( 'scroll', onScroll, { passive: true } );
 	}
 
+	/* Desktop dropdown submenus: click/tap/keyboard toggle, since :hover
+	   alone is unreachable on touch devices and via keyboard beyond the
+	   parent link itself. */
+	var submenuToggles = document.querySelectorAll( '.primary-menu .submenu-toggle' );
+	submenuToggles.forEach( function ( toggle ) {
+		toggle.addEventListener( 'click', function () {
+			var isOpen = toggle.getAttribute( 'aria-expanded' ) === 'true';
+
+			submenuToggles.forEach( function ( other ) {
+				if ( other !== toggle ) {
+					other.setAttribute( 'aria-expanded', 'false' );
+				}
+			} );
+
+			toggle.setAttribute( 'aria-expanded', isOpen ? 'false' : 'true' );
+		} );
+	} );
+
+	document.addEventListener( 'click', function ( e ) {
+		if ( ! e.target.closest( '.primary-menu .menu-item-has-children' ) ) {
+			submenuToggles.forEach( function ( toggle ) {
+				toggle.setAttribute( 'aria-expanded', 'false' );
+			} );
+		}
+	} );
+
+	document.addEventListener( 'keydown', function ( e ) {
+		if ( 'Escape' === e.key ) {
+			submenuToggles.forEach( function ( toggle ) {
+				toggle.setAttribute( 'aria-expanded', 'false' );
+			} );
+		}
+	} );
+
 	/* Mobile navigation toggle. */
 	var menuToggle = document.querySelector( '[data-sf-menu-toggle]' );
 	var mobileNav = document.querySelector( '[data-sf-mobile-nav]' );

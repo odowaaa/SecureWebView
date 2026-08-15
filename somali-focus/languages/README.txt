@@ -1,7 +1,7 @@
-Somali Focus Core is translation-ready (text domain: somali-focus).
+Somali Focus (theme) is translation-ready (text domain: somali-focus).
 
 somali-focus.pot in this folder is a ready-to-use translation template
-covering every translatable string in the plugin. To translate (e.g.
+covering every translatable string in the theme. To translate (e.g.
 into Somali):
 
 1. Open somali-focus.pot in Poedit (https://poedit.net) or the Loco
@@ -17,7 +17,7 @@ into Somali):
    (or install the locale first under Settings → General if it isn't
    listed yet).
 
-The plugin loads translations automatically via load_plugin_textdomain()
+The theme loads translations automatically via load_theme_textdomain()
 — no code changes needed.
 
 If you add or edit strings in the PHP source later and have WP-CLI

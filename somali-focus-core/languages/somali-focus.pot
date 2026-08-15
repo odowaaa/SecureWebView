@@ -1,0 +1,337 @@
+# Copyright (C) 2026 Somali Focus
+# This file is distributed under the GPLv2 (or later) license.
+msgid ""
+msgstr ""
+"Project-Id-Version: Somali Focus Core 1.5.0\n"
+"Report-Msgid-Bugs-To: https://somalifocus.org\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-15T13:04:53+00:00\n"
+"X-Generator: somali-focus-pot-scanner\n"
+"Language: en\n"
+
+#: somali-focus-core/templates/single-sf_research.php:34
+msgid "Abstract"
+msgstr ""
+
+#: somali-focus-core/templates/archive-sf_advisory.php:12
+msgid "Advisory Projects"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:109
+msgid "Advisory"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_research.php:26
+msgid "Authors"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:114
+msgid "Budget Range"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:111
+msgid "CTA Title"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_advisory.php:23
+msgid "Client / Sector"
+msgstr ""
+
+#: somali-focus-core/includes/post-types.php:267
+msgid "Dates"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_course.php:26
+msgid "Delivery Mode"
+msgstr ""
+
+#: somali-focus-core/includes/post-types.php:268
+msgid "Delivery"
+msgstr ""
+
+#: somali-focus-core/admin/admin-menu.php:74
+msgid "Demo content check complete — any empty sections have been filled with sample content."
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_research.php:41
+msgid "Download Full Report (PDF)"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_course.php:24
+msgid "Duration"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_expert.php:26
+msgid "Education"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:72
+#: somali-focus-core/includes/shortcodes.php:103
+msgid "Email"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_expert.php:27
+msgid "Experience"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_course.php:28
+msgid "Fee"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:69
+#: somali-focus-core/includes/shortcodes.php:101
+msgid "Full Name"
+msgstr ""
+
+#: somali-focus-core/includes/forms.php:65
+#: somali-focus-core/includes/notifications.php:48
+msgid "General Training Inquiry"
+msgstr ""
+
+#: somali-focus-core/includes/post-types.php:323
+msgid "General"
+msgstr ""
+
+#: somali-focus-core/admin/admin-menu.php:82
+msgid "Go to Settings"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:89
+msgid "Homepage — About"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:108
+msgid "Homepage — Final Call To Action"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:77
+msgid "Homepage — Hero"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:98
+msgid "Homepage — Impact Statistics"
+msgstr ""
+
+#: somali-focus-core/admin/admin-menu.php:79
+msgid "Install / Refill Demo Content"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_research.php:29
+msgid "Keywords"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_course.php:25
+msgid "Location"
+msgstr ""
+
+#: somali-focus-core/admin/admin-menu.php:71
+msgid "Manage all Training, Advisory, Research and site content from this menu. The active theme reads everything below automatically."
+msgstr ""
+
+#: somali-focus-core/admin/admin-menu.php:97
+msgid "Manage"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:74
+#: somali-focus-core/includes/shortcodes.php:115
+msgid "Message"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_research.php:28
+msgid "Methodology"
+msgstr ""
+
+#: somali-focus-core/admin/admin-menu.php:123
+#: somali-focus-core/admin/admin-menu.php:135
+msgid "New"
+msgstr ""
+
+#: somali-focus-core/templates/archive-sf_advisory.php:38
+msgid "No advisory projects are currently listed."
+msgstr ""
+
+#: somali-focus-core/templates/archive-sf_course.php:47
+msgid "No courses are currently listed."
+msgstr ""
+
+#: somali-focus-core/templates/archive-sf_expert.php:36
+msgid "No experts are currently listed."
+msgstr ""
+
+#: somali-focus-core/includes/security.php:77
+msgid "No file was uploaded."
+msgstr ""
+
+#: somali-focus-core/templates/archive-sf_research.php:38
+msgid "No research items are currently listed."
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:61
+msgid "Office Hours"
+msgstr ""
+
+#: somali-focus-core/includes/security.php:82
+msgid "Only PDF files are allowed for research reports."
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:52
+msgid "Organization Information"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:55
+msgid "Organization Name"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:70
+#: somali-focus-core/includes/shortcodes.php:102
+msgid "Organization"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:111
+msgid "Other"
+msgstr ""
+
+#: somali-focus-core/templates/archive-sf_expert.php:12
+msgid "Our Experts"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:58
+#: somali-focus-core/includes/shortcodes.php:73
+#: somali-focus-core/includes/shortcodes.php:104
+msgid "Phone"
+msgstr ""
+
+#: somali-focus-core/includes/forms.php:58
+#: somali-focus-core/includes/forms.php:108
+msgid "Please provide your name and a valid email address."
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:71
+msgid "Position"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:82
+#: somali-focus-core/admin/settings-page.php:113
+msgid "Primary Button Text"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_advisory.php:24
+msgid "Project Date"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_research.php:27
+msgid "Publication Date"
+msgstr ""
+
+#: somali-focus-core/templates/archive-sf_advisory.php:29
+msgid "Read More"
+msgstr ""
+
+#: somali-focus-core/includes/post-types.php:269
+msgid "Registration"
+msgstr ""
+
+#: somali-focus-core/templates/archive-sf_research.php:12
+msgid "Research & Publications"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:110
+msgid "Research"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:120
+msgid "Save Settings"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:84
+#: somali-focus-core/admin/settings-page.php:115
+msgid "Secondary Button Text"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:117
+msgid "Send Request"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:106
+msgid "Service Required"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:66
+msgid "Social Media"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:46
+msgid "Somali Focus Settings"
+msgstr ""
+
+#: somali-focus-core/admin/admin-menu.php:70
+msgid "Somali Focus — Dashboard"
+msgstr ""
+
+#: somali-focus-core/includes/forms.php:78
+msgid "Something went wrong saving your registration. Please try again."
+msgstr ""
+
+#: somali-focus-core/includes/forms.php:133
+msgid "Something went wrong saving your request. Please try again."
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:44
+msgid "Something went wrong. Please check the form and try again."
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_course.php:27
+msgid "Start Date"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:76
+msgid "Submit Registration"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:56
+msgid "Tagline"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:40
+msgid "Thank you — your request has been received. We will be in touch shortly."
+msgstr ""
+
+#: somali-focus-core/includes/security.php:87
+msgid "The PDF must be smaller than 20MB."
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:47
+msgid "These values power the organization info, homepage copy and statistics used across the site. No code editing required."
+msgstr ""
+
+#: somali-focus-core/includes/post-types.php:266
+#: somali-focus-core/templates/single-sf_course.php:23
+msgid "Trainer"
+msgstr ""
+
+#: somali-focus-core/templates/archive-sf_course.php:13
+msgid "Training Courses"
+msgstr ""
+
+#: somali-focus-core/includes/shortcodes.php:108
+msgid "Training"
+msgstr ""
+
+#: somali-focus-core/templates/archive-sf_course.php:38
+msgid "View Course"
+msgstr ""
+
+#: somali-focus-core/templates/single-sf_research.php:43
+msgid "View External Publication"
+msgstr ""
+
+#: somali-focus-core/templates/archive-sf_research.php:29
+msgid "View Publication"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:73
+msgid "WhatsApp Number"
+msgstr ""
+

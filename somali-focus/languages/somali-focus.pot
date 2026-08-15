@@ -1,0 +1,516 @@
+# Copyright (C) 2026 Somali Focus
+# This file is distributed under the GPLv2 (or later) license.
+msgid ""
+msgstr ""
+"Project-Id-Version: Somali Focus 1.5.0\n"
+"Report-Msgid-Bugs-To: https://somalifocus.org\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-08-15T13:04:53+00:00\n"
+"X-Generator: somali-focus-pot-scanner\n"
+"Language: en\n"
+
+#: somali-focus/front-page.php:77
+msgid "01 — Training"
+msgstr ""
+
+#: somali-focus/front-page.php:99
+msgid "02 — Advisory"
+msgstr ""
+
+#: somali-focus/front-page.php:121
+msgid "03 — Research"
+msgstr ""
+
+#: somali-focus/404.php:16
+msgid "404"
+msgstr ""
+
+#: somali-focus/template-parts/about.php:16
+msgid "A more capable, informed and evidence-driven Somalia."
+msgstr ""
+
+#: somali-focus/template-parts/about.php:31
+msgid "About Somali Focus"
+msgstr ""
+
+#: somali-focus/single-sf_research.php:44
+msgid "Abstract"
+msgstr ""
+
+#: somali-focus/front-page.php:95
+msgid "Advisory Highlight"
+msgstr ""
+
+#: somali-focus/front-page.php:100
+#: somali-focus/templates/page-advisory.php:67
+msgid "Advisory Projects"
+msgstr ""
+
+#: somali-focus/templates/page-advisory.php:29
+msgid "Advisory Services"
+msgstr ""
+
+#: somali-focus/footer.php:96
+#: somali-focus/template-parts/hero.php:53
+msgid "Advisory"
+msgstr ""
+
+#: somali-focus/footer.php:124
+msgid "All rights reserved."
+msgstr ""
+
+#: somali-focus/404.php:20
+msgid "Back to Homepage"
+msgstr ""
+
+#: somali-focus/comments.php:39
+msgid "Comments are closed."
+msgstr ""
+
+#: somali-focus/footer.php:102
+msgid "Contact"
+msgstr ""
+
+#: somali-focus/single-sf_course.php:85
+msgid "Course Details"
+msgstr ""
+
+#: somali-focus/single-sf_course.php:112
+msgid "Course Full"
+msgstr ""
+
+#: somali-focus/single-sf_course.php:66
+msgid "Course Outline"
+msgstr ""
+
+#: somali-focus/single-sf_advisory.php:58
+msgid "Deliverables"
+msgstr ""
+
+#: somali-focus/templates/page-research.php:112
+msgid "Discuss a Research Project"
+msgstr ""
+
+#: somali-focus/single-sf_research.php:51
+msgid "Download Full Report (PDF)"
+msgstr ""
+
+#: somali-focus/template-parts/research-card.php:38
+msgid "Download Report"
+msgstr ""
+
+#: somali-focus/templates/page-contact.php:47
+msgid "Email"
+msgstr ""
+
+#: somali-focus/template-parts/hero.php:12
+msgid "Empowering People. Strengthening Organizations. Generating Evidence."
+msgstr ""
+
+#: somali-focus/front-page.php:102
+msgid "Explore Advisory"
+msgstr ""
+
+#: somali-focus/template-parts/hero.php:14
+msgid "Explore Our Services"
+msgstr ""
+
+#: somali-focus/front-page.php:124
+msgid "Explore Research"
+msgstr ""
+
+#: somali-focus/front-page.php:122
+msgid "Featured Research & Publications"
+msgstr ""
+
+#: somali-focus/front-page.php:209
+msgid "Feedback"
+msgstr ""
+
+#: somali-focus/templates/page-training.php:94
+msgid "Formats"
+msgstr ""
+
+#: somali-focus/templates/page-contact.php:38
+msgid "Get In Touch"
+msgstr ""
+
+#: somali-focus/template-parts/approach.php:24
+msgid "How We Work"
+msgstr ""
+
+#: somali-focus/front-page.php:149
+msgid "Insights"
+msgstr ""
+
+#: somali-focus/template-parts/hero.php:19
+msgid "Introduction"
+msgstr ""
+
+#: somali-focus/front-page.php:145
+#: somali-focus/front-page.php:150
+msgid "Latest Insights"
+msgstr ""
+
+#: somali-focus/single-sf_course.php:46
+msgid "Learning Objectives"
+msgstr ""
+
+#: somali-focus/footer.php:126
+msgid "Legal"
+msgstr ""
+
+#: somali-focus/template-parts/expert-card.php:33
+msgid "LinkedIn profile"
+msgstr ""
+
+#: somali-focus/front-page.php:178
+msgid "Meet All Experts"
+msgstr ""
+
+#: somali-focus/front-page.php:170
+msgid "Meet The Team"
+msgstr ""
+
+#: somali-focus/header.php:50
+msgid "Menu"
+msgstr ""
+
+#: somali-focus/template-parts/mobile-nav.php:14
+msgid "Mobile"
+msgstr ""
+
+#: somali-focus/templates/page-training.php:84
+msgid "New training dates are announced regularly — contact us to be notified or to arrange a customized session for your organization."
+msgstr ""
+
+#: somali-focus/archive-sf_advisory.php:37
+msgid "No advisory projects are currently listed."
+msgstr ""
+
+#: somali-focus/archive-sf_course.php:37
+msgid "No courses are currently listed. Please check back soon or contact us to arrange a customized session."
+msgstr ""
+
+#: somali-focus/archive-sf_expert.php:37
+msgid "No experts are currently listed."
+msgstr ""
+
+#: somali-focus/index.php:38
+msgid "No posts published yet."
+msgstr ""
+
+#: somali-focus/archive-sf_research.php:37
+msgid "No research items are currently listed."
+msgstr ""
+
+#: somali-focus/search.php:53
+msgid "No results found. Try a different search term."
+msgstr ""
+
+#: somali-focus/archive.php:38
+msgid "Nothing found."
+msgstr ""
+
+#: somali-focus/templates/page-contact.php:50
+msgid "Office Hours"
+msgstr ""
+
+#: somali-focus/templates/page-contact.php:41
+msgid "Office"
+msgstr ""
+
+#: somali-focus/template-parts/approach.php:25
+msgid "Our Approach"
+msgstr ""
+
+#: somali-focus/front-page.php:19
+msgid "Our Core Services"
+msgstr ""
+
+#: somali-focus/front-page.php:167
+#: somali-focus/front-page.php:171
+msgid "Our Experts"
+msgstr ""
+
+#: somali-focus/template-parts/stats.php:17
+msgid "Our Impact"
+msgstr ""
+
+#: somali-focus/template-parts/about.php:37
+msgid "Our Mission"
+msgstr ""
+
+#: somali-focus/front-page.php:187
+msgid "Our Partners"
+msgstr ""
+
+#: somali-focus/templates/page-research.php:61
+msgid "Our Process"
+msgstr ""
+
+#: somali-focus/footer.php:93
+msgid "Our Services"
+msgstr ""
+
+#: somali-focus/template-parts/about.php:47
+msgid "Our Values"
+msgstr ""
+
+#: somali-focus/template-parts/about.php:41
+msgid "Our Vision"
+msgstr ""
+
+#: somali-focus/404.php:17
+msgid "Page Not Found"
+msgstr ""
+
+#: somali-focus/front-page.php:191
+msgid "Partners & Clients"
+msgstr ""
+
+#: somali-focus/templates/page-contact.php:44
+msgid "Phone"
+msgstr ""
+
+#: somali-focus/header.php:40
+msgid "Primary"
+msgstr ""
+
+#: somali-focus/single-sf_research.php:59
+msgid "Publication Details"
+msgstr ""
+
+#: somali-focus/templates/page-research.php:94
+msgid "Publications"
+msgstr ""
+
+#: somali-focus/footer.php:61
+#: somali-focus/footer.php:62
+msgid "Quick Links"
+msgstr ""
+
+#: somali-focus/template-parts/advisory-card.php:36
+#: somali-focus/template-parts/blog-card.php:41
+msgid "Read More"
+msgstr ""
+
+#: somali-focus/templates/page-advisory.php:66
+msgid "Recent Work"
+msgstr ""
+
+#: somali-focus/single-sf_course.php:124
+msgid "Register for This Course"
+msgstr ""
+
+#: somali-focus/single-sf_course.php:114
+msgid "Registration Closed"
+msgstr ""
+
+#: somali-focus/single-sf_course.php:110
+msgid "Registration Open"
+msgstr ""
+
+#: somali-focus/single-sf_course.php:141
+msgid "Related Courses"
+msgstr ""
+
+#: somali-focus/single-sf_research.php:90
+msgid "Related Research"
+msgstr ""
+
+#: somali-focus/templates/page-advisory.php:88
+msgid "Request Advisory Support"
+msgstr ""
+
+#: somali-focus/header.php:46
+#: somali-focus/template-parts/mobile-nav.php:19
+msgid "Request a Service"
+msgstr ""
+
+#: somali-focus/templates/page-training.php:144
+msgid "Request a Training"
+msgstr ""
+
+#: somali-focus/single-sf_course.php:78
+msgid "Requirements"
+msgstr ""
+
+#: somali-focus/templates/page-research.php:95
+msgid "Research & Publications"
+msgstr ""
+
+#: somali-focus/front-page.php:117
+msgid "Research Highlight"
+msgstr ""
+
+#: somali-focus/templates/page-research.php:62
+msgid "Research Methodology"
+msgstr ""
+
+#: somali-focus/templates/page-research.php:29
+msgid "Research Services"
+msgstr ""
+
+#: somali-focus/footer.php:97
+#: somali-focus/template-parts/hero.php:57
+msgid "Research"
+msgstr ""
+
+#: somali-focus/templates/page-training.php:68
+msgid "Schedule"
+msgstr ""
+
+#: somali-focus/searchform.php:13
+msgid "Search for:"
+msgstr ""
+
+#: somali-focus/searchform.php:15
+msgid "Search"
+msgstr ""
+
+#: somali-focus/searchform.php:14
+msgid "Search…"
+msgstr ""
+
+#: somali-focus/template-parts/sectors.php:27
+msgid "Sectors We Serve"
+msgstr ""
+
+#: somali-focus/templates/page-contact.php:33
+msgid "Send Us a Message"
+msgstr ""
+
+#: somali-focus/templates/page-advisory.php:28
+msgid "Service Areas"
+msgstr ""
+
+#: somali-focus/templates/page-research.php:28
+msgid "Services"
+msgstr ""
+
+#: somali-focus/header.php:21
+msgid "Skip to content"
+msgstr ""
+
+#: somali-focus/template-parts/about.php:14
+msgid "Somali Focus is a professional Training, Advisory and Research organization committed to strengthening people, organizations and decision-making through practical knowledge, professional expertise and evidence."
+msgstr ""
+
+#: somali-focus/template-parts/hero.php:13
+msgid "Somali Focus provides professional Training, Advisory and Research services designed to strengthen individual and organizational capacity and support evidence-based decision making."
+msgstr ""
+
+#: somali-focus/template-parts/hero.php:16
+msgid "Start a Conversation"
+msgstr ""
+
+#: somali-focus/single-sf_course.php:58
+msgid "Target Audience"
+msgstr ""
+
+#: somali-focus/templates/page-research.php:113
+msgid "Tell us about the study or evaluation you need and our research team will follow up."
+msgstr ""
+
+#: somali-focus/templates/page-advisory.php:89
+msgid "Tell us about your organization's challenge and our advisory team will follow up."
+msgstr ""
+
+#: somali-focus/templates/page-training.php:145
+msgid "Tell us what you need and our team will follow up with available options."
+msgstr ""
+
+#: somali-focus/404.php:18
+msgid "The page you're looking for doesn't exist or may have moved."
+msgstr ""
+
+#: somali-focus/template-parts/about.php:15
+msgid "To strengthen people and organizations through quality training, practical advisory services and credible research."
+msgstr ""
+
+#: somali-focus/templates/page-training.php:28
+msgid "Training Areas"
+msgstr ""
+
+#: somali-focus/templates/page-training.php:95
+msgid "Training Formats"
+msgstr ""
+
+#: somali-focus/front-page.php:73
+msgid "Training Highlight"
+msgstr ""
+
+#: somali-focus/template-parts/hero.php:36
+msgid "Training · Advisory · Research"
+msgstr ""
+
+#: somali-focus/footer.php:43
+msgid "Training, Advisory & Research"
+msgstr ""
+
+#: somali-focus/footer.php:95
+#: somali-focus/template-parts/hero.php:49
+msgid "Training"
+msgstr ""
+
+#: somali-focus/front-page.php:190
+msgid "Trusted By"
+msgstr ""
+
+#: somali-focus/front-page.php:78
+msgid "Upcoming & Featured Courses"
+msgstr ""
+
+#: somali-focus/templates/page-training.php:69
+msgid "Upcoming Training"
+msgstr ""
+
+#: somali-focus/front-page.php:152
+msgid "View All Insights"
+msgstr ""
+
+#: somali-focus/front-page.php:80
+msgid "View All Training"
+msgstr ""
+
+#: somali-focus/template-parts/course-card.php:45
+msgid "View Course"
+msgstr ""
+
+#: somali-focus/single-sf_research.php:53
+msgid "View External Publication"
+msgstr ""
+
+#: somali-focus/front-page.php:210
+msgid "What Our Clients Say"
+msgstr ""
+
+#: somali-focus/front-page.php:206
+msgid "What People Say"
+msgstr ""
+
+#: somali-focus/templates/page-training.php:29
+msgid "What We Train On"
+msgstr ""
+
+#: somali-focus/template-parts/about.php:30
+msgid "Who We Are"
+msgstr ""
+
+#: somali-focus/template-parts/sectors.php:26
+msgid "Who We Work With"
+msgstr ""
+
+#: somali-focus/templates/page-training.php:121
+msgid "Why Train With Somali Focus?"
+msgstr ""
+
+#: comments.php:16
+msgid "%s Comment"
+msgid_plural "%s Comments"
+msgstr[0] ""
+msgstr[1] ""
+

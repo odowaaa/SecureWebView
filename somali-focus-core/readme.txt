@@ -4,7 +4,7 @@ Tags: custom-post-type, training, consulting, research
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,10 @@ to the address configured in Settings (falls back to the site admin
 email).
 
 == Changelog ==
+
+= 1.5.0 =
+* Added a ready-to-use `languages/somali-focus.pot` translation template.
+* Minor internal hardening pass; no data or settings changes.
 
 = 1.0.0 =
 * Initial release.

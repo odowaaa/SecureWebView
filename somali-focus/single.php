@@ -67,6 +67,17 @@ while ( have_posts() ) :
 			</div>
 		</section>
 
+		<div class="container container--narrow sf-reveal">
+			<?php
+			the_post_navigation(
+				array(
+					'prev_text' => '<span class="post-navigation__label">' . esc_html__( 'Previous', 'somali-focus' ) . '</span><span class="post-navigation__title">%title</span>',
+					'next_text' => '<span class="post-navigation__label">' . esc_html__( 'Next', 'somali-focus' ) . '</span><span class="post-navigation__title">%title</span>',
+				)
+			);
+			?>
+		</div>
+
 		<?php if ( comments_open() || get_comments_number() ) : ?>
 			<section class="page-content-section sf-reveal">
 				<div class="container container--narrow">

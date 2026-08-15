@@ -4,7 +4,7 @@ Tags: custom-menu, custom-logo, featured-images, threaded-comments, translation-
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.5.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -75,6 +75,19 @@ The theme is a classic (non-block) theme with full Gutenberg content
 editing support. It does not depend on Elementor, Divi or WPBakery.
 
 == Changelog ==
+
+= 1.5.0 =
+* Real Somali Focus logo now bundled as the default brand asset (header,
+  footer and favicon), with Customizer Custom Logo/Site Icon as an override.
+* Fixed keyboard/touch access to desktop dropdown submenus — previously
+  reachable by mouse hover only.
+* Added JSON-LD structured data: sitewide Organization, BreadcrumbList,
+  Course schema on training pages, and Article schema on Insights posts
+  (skipped automatically when Yoast/Rank Math/AIOSEO is active, except
+  Course schema which those plugins don't cover).
+* Added a "Related Courses" section to single course pages and
+  previous/next post navigation to single Insights posts.
+* Added a ready-to-use `languages/somali-focus.pot` translation template.
 
 = 1.0.0 =
 * Initial release.

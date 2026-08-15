@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SOMALI_FOCUS_VERSION', '1.0.0' );
+define( 'SOMALI_FOCUS_VERSION', '1.5.0' );
 define( 'SOMALI_FOCUS_DIR', get_template_directory() );
 define( 'SOMALI_FOCUS_URI', get_template_directory_uri() );
 
@@ -22,6 +22,7 @@ $somali_focus_includes = array(
 	'/inc/customizer.php',
 	'/inc/navigation.php',
 	'/inc/template-functions.php',
+	'/inc/schema.php',
 );
 
 foreach ( $somali_focus_includes as $somali_focus_file ) {
