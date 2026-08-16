@@ -1,0 +1,69 @@
+/* SomaliFocus AI Writer — admin page styles. */
+
+.sf-ai-writer .sf-ai-writer-notice {
+	margin: 1em 0;
+	padding: 1em;
+}
+
+.sf-ai-writer .sf-ai-writer-result {
+	margin-top: 2em;
+	max-width: 900px;
+}
+
+.sf-ai-writer .sf-ai-warnings ul,
+.sf-ai-writer .sf-ai-content-notice p {
+	margin: 0.5em 0 0;
+}
+
+.sf-ai-writer .sf-ai-writer-review {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: 1.25em 1.5em;
+	margin-top: 1em;
+}
+
+.sf-ai-writer .sf-ai-field {
+	margin-bottom: 1.25em;
+}
+
+.sf-ai-writer .sf-ai-field label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 0.4em;
+}
+
+.sf-ai-writer .sf-ai-field textarea {
+	font-family: Menlo, Consolas, Monaco, monospace;
+	font-size: 12px;
+}
+
+.sf-ai-writer .sf-ai-terms {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 4px;
+	padding: 1.25em 1.5em;
+	margin-top: 1em;
+}
+
+.sf-ai-writer .sf-ai-terms h3 {
+	margin-top: 0;
+}
+
+.sf-ai-writer .sf-ai-term-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em 1.5em;
+	margin-bottom: 1em;
+}
+
+.sf-ai-writer .sf-ai-term-row {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35em;
+}
+
+.sf-ai-writer .spinner {
+	visibility: visible;
+	margin-top: 4px;
+}

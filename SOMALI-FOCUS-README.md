@@ -1,20 +1,39 @@
 # Somali Focus — WordPress Plugin + Theme
 
-This directory tree contains two independently-installable WordPress
+This directory tree contains independently-installable WordPress
 packages built for **Somali Focus** (Training, Advisory & Research):
 
 ```
-somali-focus-core/   ← Plugin. Owns all data: CPTs, taxonomies, settings,
-                        forms, registrations, admin UI.
-somali-focus/         ← Theme. Owns all design: layout, typography,
-                        colors, templates, animations.
+somali-focus-core/     ← Plugin. Owns all data: CPTs, taxonomies, settings,
+                          forms, registrations, admin UI.
+somali-focus/           ← Theme. Owns all design: layout, typography,
+                          colors, templates, animations.
+somalifocus-ai-writer/  ← Optional plugin. Generates complete draft
+                          articles from a topic via the official "AI"
+                          plugin's Connectors/AI Client. See its own
+                          readme.txt; unrelated to somali-focus-core's
+                          CPTs and not required for the site to work.
 ```
 
 They are unrelated to the rest of this repository (an Android WebView
 library) — they were added here because the session's working branch
 was pre-configured against this repo. If you'd rather they live in
-their own repository, just copy both folders out; neither depends on
+their own repository, just copy the folders out; none of them depend on
 anything else in this codebase.
+
+## SomaliFocus AI Article Writer (optional companion plugin)
+
+Separate from the Core/Theme pair above: `somalifocus-ai-writer/`
+generates complete, publication-ready draft articles from a topic —
+title, full body content, excerpt, and SEO metadata — using whichever AI
+Connector (Anthropic, OpenAI, Google, etc.) is already configured on the
+site through the official **AI** plugin (WordPress.org: "AI features,
+experiments and capabilities for WordPress"). It requires that plugin
+plus at least one AI Connector plugin to be active; it does not bundle
+its own credential system. See `somalifocus-ai-writer/readme.txt` for
+installation and usage, and `dist/somalifocus-ai-writer.zip` for the
+packaged upload. It never publishes automatically — every generated
+result is a draft the admin must review and publish themselves.
 
 ## What's new in 3.0
 
