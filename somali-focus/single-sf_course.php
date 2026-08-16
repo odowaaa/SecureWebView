@@ -34,7 +34,7 @@ while ( have_posts() ) :
 			<div class="container single-layout">
 				<div class="single-layout__main entry-content">
 					<?php if ( has_post_thumbnail() ) : ?>
-						<div class="single-course__image"><?php the_post_thumbnail( 'sf-hero' ); ?></div>
+						<div class="single-course__image"><?php the_post_thumbnail( 'sf-hero', array( 'alt' => get_the_title() ) ); ?></div>
 					<?php endif; ?>
 
 					<?php the_content(); ?>

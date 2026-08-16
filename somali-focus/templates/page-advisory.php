@@ -66,6 +66,9 @@ if ( ! empty( $sf_projects ) ) :
 					<p class="eyebrow"><?php esc_html_e( 'Recent Work', 'somali-focus' ); ?></p>
 					<h2 class="section-title"><?php esc_html_e( 'Advisory Projects', 'somali-focus' ); ?></h2>
 				</div>
+				<?php if ( get_post_type_archive_link( 'sf_advisory' ) ) : ?>
+					<a class="btn btn--outline" href="<?php echo esc_url( get_post_type_archive_link( 'sf_advisory' ) ); ?>"><?php esc_html_e( 'View All Projects', 'somali-focus' ); ?></a>
+				<?php endif; ?>
 			</header>
 			<div class="card-grid card-grid--3">
 				<?php foreach ( $sf_projects as $sf_project ) : ?>

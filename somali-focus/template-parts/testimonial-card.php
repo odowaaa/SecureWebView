@@ -22,7 +22,7 @@ $sf_position = sf_theme_meta( $sf_post, 'position' );
 	<blockquote class="testimonial-card__quote"><?php echo esc_html( wp_strip_all_tags( $sf_post->post_content ) ); ?></blockquote>
 	<figcaption class="testimonial-card__author">
 		<?php if ( has_post_thumbnail( $sf_post ) ) : ?>
-			<?php echo get_the_post_thumbnail( $sf_post, 'thumbnail', array( 'loading' => 'lazy', 'class' => 'testimonial-card__photo' ) ); ?>
+			<?php echo get_the_post_thumbnail( $sf_post, 'thumbnail', array( 'loading' => 'lazy', 'class' => 'testimonial-card__photo', 'alt' => get_the_title( $sf_post ) ) ); ?>
 		<?php endif; ?>
 		<span>
 			<span class="testimonial-card__name"><?php echo esc_html( get_the_title( $sf_post ) ); ?></span>

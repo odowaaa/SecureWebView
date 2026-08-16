@@ -136,11 +136,14 @@ $sf_socials = array(
 						);
 					} else {
 						$privacy = get_privacy_policy_url();
+						$terms   = get_page_by_path( 'terms' );
 						echo '<ul class="footer-legal__menu">';
 						if ( $privacy ) {
 							echo '<li><a href="' . esc_url( $privacy ) . '">' . esc_html__( 'Privacy Policy', 'somali-focus' ) . '</a></li>';
 						}
-						echo '<li><a href="' . esc_url( home_url( '/terms/' ) ) . '">' . esc_html__( 'Terms & Conditions', 'somali-focus' ) . '</a></li>';
+						if ( $terms ) {
+							echo '<li><a href="' . esc_url( get_permalink( $terms ) ) . '">' . esc_html__( 'Terms & Conditions', 'somali-focus' ) . '</a></li>';
+						}
 						echo '</ul>';
 					}
 					?>

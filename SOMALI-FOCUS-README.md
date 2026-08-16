@@ -16,6 +16,34 @@ was pre-configured against this repo. If you'd rather they live in
 their own repository, just copy both folders out; neither depends on
 anything else in this codebase.
 
+## What's new in 2.0
+
+A v2.0 site audit (page-by-page, forms, SEO, mobile, security, admin
+workflow) found one real architectural bug and several smaller gaps.
+All of them are fixed in this release:
+
+* **Fixed the headline bug:** the Course/Advisory/Research archive URLs
+  (`/training/`, `/advisory/`, `/research/`) silently collided with the
+  Training/Advisory/Research *landing pages* meant to live at those same
+  URLs — a WordPress Page can never win that routing race against a
+  post type archive. Archives moved to `/courses/`,
+  `/advisory-projects/`, `/publications/`, freeing the clean URLs for
+  the landing pages.
+* **Site structure is now automatic.** Activating the plugin creates
+  the About/Training/Advisory/Research/Services/Contact/Insights pages
+  (with their templates already assigned), points Insights at the blog,
+  and builds a Primary menu — the site is actually navigable
+  immediately, not just after manual setup. Re-run anytime from
+  Somali Focus → Dashboard.
+* Partners no longer have an orphaned, undesigned single URL.
+* Course/Advisory/Research/Expertise/Sector taxonomy archives render
+  with the correct card component instead of generic blog styling.
+* Every card thumbnail has a real alt-text fallback.
+* Fonts are self-hosted — no external Google Fonts request.
+* A couple of small mobile/footer polish fixes.
+
+See each package's `readme.txt` for the full changelog.
+
 ## What's new in 1.5
 
 * The real Somali Focus logo ships as the default header/footer/favicon
@@ -28,8 +56,6 @@ anything else in this codebase.
   single Insights posts.
 * Real `languages/somali-focus.pot` translation templates in both
   packages (was a placeholder instructions file in 1.0).
-
-See each package's `readme.txt` for the full changelog.
 
 ## Why two packages?
 
@@ -57,15 +83,23 @@ survive untouched. Splitting the project this way guarantees it:
    over FTP/SSH.
 2. Activate **Somali Focus Core** first, then activate the
    **Somali Focus** theme.
-3. Follow `somali-focus/readme.txt` for menu, page-template and
-   Customizer setup, and `somali-focus-core/readme.txt` for plugin
-   specifics.
+3. That's it — the plugin's activation hook creates the About, Training,
+   Advisory, Research, Services, Contact and Insights pages (with their
+   templates already assigned), points Reading Settings at Insights as
+   the blog page, and builds a Primary navigation menu, all
+   automatically. Demo content (clearly fictional — courses, advisory
+   projects, research items, experts, partner placeholders) seeds at
+   the same time, so the site looks and navigates like a complete site
+   immediately after activation.
+4. Visit **Somali Focus → Settings** to replace the placeholder
+   organization info, and swap the demo content for the real thing when
+   ready. If you ever delete a page or menu while testing, re-run either
+   step from **Somali Focus → Dashboard** ("Set Up Site Structure" /
+   "Install / Refill Demo Content") — both are safe to run repeatedly,
+   they only fill in what's missing.
 
-Demo content (clearly fictional — courses, advisory projects, research
-items, experts, partner placeholders) seeds automatically the first
-time the plugin activates, so the site looks complete immediately. Use
-**Somali Focus → Dashboard → Install / Refill Demo Content** to top up
-any section you've emptied out while testing.
+See `somali-focus/readme.txt` for Customizer/logo details and
+`somali-focus-core/readme.txt` for plugin specifics.
 
 ## Plugin architecture (`somali-focus-core`)
 

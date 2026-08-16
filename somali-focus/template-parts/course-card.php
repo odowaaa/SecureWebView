@@ -28,7 +28,7 @@ if ( ! $sf_excerpt ) {
 <article class="card course-card sf-reveal">
 	<a class="card__media" href="<?php echo esc_url( $sf_permalink ); ?>">
 		<?php if ( has_post_thumbnail( $sf_post ) ) : ?>
-			<?php echo get_the_post_thumbnail( $sf_post, 'sf-card', array( 'loading' => 'lazy' ) ); ?>
+			<?php echo get_the_post_thumbnail( $sf_post, 'sf-card', array( 'loading' => 'lazy', 'alt' => get_the_title( $sf_post ) ) ); ?>
 		<?php else : ?>
 			<span class="card__media-fallback"><?php sf_icon( 'training' ); ?></span>
 		<?php endif; ?>

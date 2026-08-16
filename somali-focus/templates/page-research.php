@@ -94,6 +94,9 @@ if ( ! empty( $sf_research ) ) :
 					<p class="eyebrow"><?php esc_html_e( 'Publications', 'somali-focus' ); ?></p>
 					<h2 class="section-title"><?php esc_html_e( 'Research & Publications', 'somali-focus' ); ?></h2>
 				</div>
+				<?php if ( get_post_type_archive_link( 'sf_research' ) ) : ?>
+					<a class="btn btn--outline" href="<?php echo esc_url( get_post_type_archive_link( 'sf_research' ) ); ?>"><?php esc_html_e( 'View All Publications', 'somali-focus' ); ?></a>
+				<?php endif; ?>
 			</header>
 			<div class="card-grid card-grid--3">
 				<?php foreach ( $sf_research as $sf_item ) : ?>

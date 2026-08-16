@@ -73,8 +73,14 @@ function somali_focus_dashboard_page() {
 		<?php if ( isset( $_GET['sf_seeded'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
 			<div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Demo content check complete — any empty sections have been filled with sample content.', 'somali-focus' ); ?></p></div>
 		<?php endif; ?>
+		<?php if ( isset( $_GET['sf_site_setup'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
+			<div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Site structure check complete — any missing pages or the primary menu have been created.', 'somali-focus' ); ?></p></div>
+		<?php endif; ?>
 
 		<p>
+			<a class="button button-primary" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=somali_focus_site_setup' ), 'somali_focus_site_setup' ) ); ?>">
+				<?php esc_html_e( 'Set Up Site Structure (Pages & Menu)', 'somali-focus' ); ?>
+			</a>
 			<a class="button" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=somali_focus_seed_demo' ), 'somali_focus_seed_demo' ) ); ?>">
 				<?php esc_html_e( 'Install / Refill Demo Content', 'somali-focus' ); ?>
 			</a>

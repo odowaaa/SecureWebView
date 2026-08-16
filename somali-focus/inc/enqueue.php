@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Enqueue front-end assets.
  */
 function somali_focus_scripts() {
-	// Self-hosted-friendly Google Fonts (Plus Jakarta Sans + Merriweather) with display swap.
+	// Self-hosted Plus Jakarta Sans + Merriweather — no external font request.
 	wp_enqueue_style(
 		'somali-focus-fonts',
-		'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap',
+		SOMALI_FOCUS_URI . '/assets/css/fonts.css',
 		array(),
-		null
+		SOMALI_FOCUS_VERSION
 	);
 
 	wp_enqueue_style( 'somali-focus-style', get_stylesheet_uri(), array(), SOMALI_FOCUS_VERSION );
@@ -60,11 +60,17 @@ add_action( 'enqueue_block_editor_assets', 'somali_focus_editor_assets' );
 add_editor_style( 'assets/css/editor-style.css' );
 
 /**
- * Preload the wordmark + hero visuals for better LCP.
+ * Preload the two self-hosted Latin font files most visitors need
+ * immediately, avoiding a flash of unstyled/fallback text.
  */
 function somali_focus_resource_hints() {
-	echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
-	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+	$fonts = array(
+		'/assets/fonts/plus-jakarta-sans-latin.woff2',
+		'/assets/fonts/merriweather-normal-latin.woff2',
+	);
+	foreach ( $fonts as $font ) {
+		echo '<link rel="preload" href="' . esc_url( SOMALI_FOCUS_URI . $font ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
+	}
 }
 add_action( 'wp_head', 'somali_focus_resource_hints', 1 );
 

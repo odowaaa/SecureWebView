@@ -2,12 +2,12 @@
 # This file is distributed under the GPLv2 (or later) license.
 msgid ""
 msgstr ""
-"Project-Id-Version: Somali Focus 1.5.0\n"
+"Project-Id-Version: Somali Focus 2.0.0\n"
 "Report-Msgid-Bugs-To: https://somalifocus.org\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-15T13:04:53+00:00\n"
+"POT-Creation-Date: 2026-08-16T09:09:13+00:00\n"
 "X-Generator: somali-focus-pot-scanner\n"
 "Language: en\n"
 
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Deliverables"
 msgstr ""
 
-#: somali-focus/templates/page-research.php:112
+#: somali-focus/templates/page-research.php:115
 msgid "Discuss a Research Project"
 msgstr ""
 
@@ -129,7 +129,7 @@ msgstr ""
 msgid "Feedback"
 msgstr ""
 
-#: somali-focus/templates/page-training.php:94
+#: somali-focus/templates/page-training.php:97
 msgid "Formats"
 msgstr ""
 
@@ -182,7 +182,7 @@ msgstr ""
 msgid "Mobile"
 msgstr ""
 
-#: somali-focus/templates/page-training.php:84
+#: somali-focus/templates/page-training.php:87
 msgid "New training dates are announced regularly — contact us to be notified or to arrange a customized session for your organization."
 msgstr ""
 
@@ -208,6 +208,10 @@ msgstr ""
 
 #: somali-focus/search.php:53
 msgid "No results found. Try a different search term."
+msgstr ""
+
+#: somali-focus/taxonomy.php:58
+msgid "Nothing found in this category yet."
 msgstr ""
 
 #: somali-focus/archive.php:38
@@ -321,7 +325,7 @@ msgstr ""
 msgid "Related Research"
 msgstr ""
 
-#: somali-focus/templates/page-advisory.php:88
+#: somali-focus/templates/page-advisory.php:91
 msgid "Request Advisory Support"
 msgstr ""
 
@@ -330,7 +334,7 @@ msgstr ""
 msgid "Request a Service"
 msgstr ""
 
-#: somali-focus/templates/page-training.php:144
+#: somali-focus/templates/page-training.php:147
 msgid "Request a Training"
 msgstr ""
 
@@ -411,15 +415,15 @@ msgstr ""
 msgid "Target Audience"
 msgstr ""
 
-#: somali-focus/templates/page-research.php:113
+#: somali-focus/templates/page-research.php:116
 msgid "Tell us about the study or evaluation you need and our research team will follow up."
 msgstr ""
 
-#: somali-focus/templates/page-advisory.php:89
+#: somali-focus/templates/page-advisory.php:92
 msgid "Tell us about your organization's challenge and our advisory team will follow up."
 msgstr ""
 
-#: somali-focus/templates/page-training.php:145
+#: somali-focus/templates/page-training.php:148
 msgid "Tell us what you need and our team will follow up with available options."
 msgstr ""
 
@@ -435,7 +439,7 @@ msgstr ""
 msgid "Training Areas"
 msgstr ""
 
-#: somali-focus/templates/page-training.php:95
+#: somali-focus/templates/page-training.php:98
 msgid "Training Formats"
 msgstr ""
 
@@ -468,8 +472,20 @@ msgstr ""
 msgid "Upcoming Training"
 msgstr ""
 
+#: somali-focus/templates/page-training.php:72
+msgid "View All Courses"
+msgstr ""
+
 #: somali-focus/front-page.php:152
 msgid "View All Insights"
+msgstr ""
+
+#: somali-focus/templates/page-advisory.php:70
+msgid "View All Projects"
+msgstr ""
+
+#: somali-focus/templates/page-research.php:98
+msgid "View All Publications"
 msgstr ""
 
 #: somali-focus/front-page.php:80
@@ -504,7 +520,7 @@ msgstr ""
 msgid "Who We Work With"
 msgstr ""
 
-#: somali-focus/templates/page-training.php:121
+#: somali-focus/templates/page-training.php:124
 msgid "Why Train With Somali Focus?"
 msgstr ""
 

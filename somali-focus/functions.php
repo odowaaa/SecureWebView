@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SOMALI_FOCUS_VERSION', '1.5.0' );
+define( 'SOMALI_FOCUS_VERSION', '2.0.0' );
 define( 'SOMALI_FOCUS_DIR', get_template_directory() );
 define( 'SOMALI_FOCUS_URI', get_template_directory_uri() );
 

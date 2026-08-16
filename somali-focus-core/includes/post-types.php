@@ -34,8 +34,11 @@ function somali_focus_register_post_types() {
 				'featured_image'        => __( 'Course Image', 'somali-focus' ),
 			),
 			'public'             => true,
-			'has_archive'        => 'training',
-			'rewrite'            => array( 'slug' => 'training', 'with_front' => false ),
+			// Archive slug intentionally NOT 'training' — that URL is reserved
+			// for the Training landing Page (templates/page-training.php).
+			// A CPT archive and a Page can't share a slug; the archive loses.
+			'has_archive'        => 'courses',
+			'rewrite'            => array( 'slug' => 'courses', 'with_front' => false ),
 			'show_in_menu'       => 'somali-focus',
 			'show_in_rest'       => true,
 			'menu_icon'          => 'dashicons-welcome-learn-more',
@@ -65,8 +68,10 @@ function somali_focus_register_post_types() {
 				'featured_image' => __( 'Project Image', 'somali-focus' ),
 			),
 			'public'          => true,
-			'has_archive'     => 'advisory',
-			'rewrite'         => array( 'slug' => 'advisory', 'with_front' => false ),
+			// Archive slug intentionally NOT 'advisory' — reserved for the
+			// Advisory landing Page (templates/page-advisory.php).
+			'has_archive'     => 'advisory-projects',
+			'rewrite'         => array( 'slug' => 'advisory-projects', 'with_front' => false ),
 			'show_in_menu'    => 'somali-focus',
 			'show_in_rest'    => true,
 			'menu_icon'       => 'dashicons-businessman',
@@ -96,8 +101,10 @@ function somali_focus_register_post_types() {
 				'featured_image' => __( 'Cover Image', 'somali-focus' ),
 			),
 			'public'          => true,
-			'has_archive'     => 'research',
-			'rewrite'         => array( 'slug' => 'research', 'with_front' => false ),
+			// Archive slug intentionally NOT 'research' — reserved for the
+			// Research landing Page (templates/page-research.php).
+			'has_archive'     => 'publications',
+			'rewrite'         => array( 'slug' => 'publications', 'with_front' => false ),
 			'show_in_menu'    => 'somali-focus',
 			'show_in_rest'    => true,
 			'menu_icon'       => 'dashicons-media-document',
@@ -156,10 +163,15 @@ function somali_focus_register_post_types() {
 				'menu_name'      => __( 'Partners', 'somali-focus' ),
 				'featured_image' => __( 'Logo', 'somali-focus' ),
 			),
-			'public'          => true,
-			'has_archive'     => false,
+			// Partners are logo/link cards embedded in other pages, not
+			// standalone content — same public/queryable shape as
+			// Testimonials below, so they never get an orphaned,
+			// undesigned single URL.
+			'public'              => false,
+			'publicly_queryable'  => false,
+			'has_archive'         => false,
 			'exclude_from_search' => true,
-			'rewrite'         => array( 'slug' => 'partner', 'with_front' => false ),
+			'show_ui'             => true,
 			'show_in_menu'    => 'somali-focus',
 			'show_in_rest'    => true,
 			'menu_icon'       => 'dashicons-groups',

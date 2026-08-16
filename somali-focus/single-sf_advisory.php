@@ -32,7 +32,7 @@ while ( have_posts() ) :
 		<section class="page-content-section sf-reveal">
 			<div class="container container--narrow entry-content">
 				<?php if ( has_post_thumbnail() ) : ?>
-					<div class="single-course__image"><?php the_post_thumbnail( 'sf-hero' ); ?></div>
+					<div class="single-course__image"><?php the_post_thumbnail( 'sf-hero', array( 'alt' => get_the_title() ) ); ?></div>
 				<?php endif; ?>
 
 				<?php

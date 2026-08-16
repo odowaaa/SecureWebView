@@ -68,6 +68,9 @@ if ( ! empty( $sf_courses ) ) :
 					<p class="eyebrow"><?php esc_html_e( 'Schedule', 'somali-focus' ); ?></p>
 					<h2 class="section-title"><?php esc_html_e( 'Upcoming Training', 'somali-focus' ); ?></h2>
 				</div>
+				<?php if ( get_post_type_archive_link( 'sf_course' ) ) : ?>
+					<a class="btn btn--outline" href="<?php echo esc_url( get_post_type_archive_link( 'sf_course' ) ); ?>"><?php esc_html_e( 'View All Courses', 'somali-focus' ); ?></a>
+				<?php endif; ?>
 			</header>
 			<div class="card-grid card-grid--3">
 				<?php foreach ( $sf_courses as $sf_course ) : ?>

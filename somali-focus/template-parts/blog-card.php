@@ -21,7 +21,7 @@ $sf_category   = ! empty( $sf_categories ) ? $sf_categories[0]->name : '';
 <article class="card blog-card sf-reveal">
 	<a class="card__media" href="<?php echo esc_url( get_permalink( $sf_post ) ); ?>">
 		<?php if ( has_post_thumbnail( $sf_post ) ) : ?>
-			<?php echo get_the_post_thumbnail( $sf_post, 'sf-card', array( 'loading' => 'lazy' ) ); ?>
+			<?php echo get_the_post_thumbnail( $sf_post, 'sf-card', array( 'loading' => 'lazy', 'alt' => get_the_title( $sf_post ) ) ); ?>
 		<?php else : ?>
 			<span class="card__media-fallback"><?php sf_icon( 'book' ); ?></span>
 		<?php endif; ?>

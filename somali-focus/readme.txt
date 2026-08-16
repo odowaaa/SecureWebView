@@ -4,7 +4,7 @@ Tags: custom-menu, custom-logo, featured-images, threaded-comments, translation-
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.5.0
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,33 +33,27 @@ accessibility-conscious and compatible with Yoast SEO / Rank Math.
 
 == Installation ==
 
-1. Install and activate **Somali Focus Core** first.
+1. Install and activate **Somali Focus Core** first. Its activation
+   hook automatically creates the About/Training/Advisory/Research/
+   Services/Contact/Insights pages with the right templates already
+   assigned, configures Insights as the blog page, and builds a Primary
+   navigation menu.
 2. Upload the `somali-focus` folder to `/wp-content/themes/`, or upload
    `somali-focus-theme.zip` via Appearance → Themes → Add New → Upload
    Theme.
-3. Activate the theme.
-4. Appearance → Customize → Menus: create and assign a **Primary Menu**
-   (Home, About, Training, Advisory, Research, Insights, Experts,
-   Contact) and optionally a **Footer Menu** and **Legal Menu**.
-5. The real Somali Focus logo is bundled and displays automatically —
+3. Activate the theme — the pages created in step 1 immediately start
+   rendering through their assigned templates.
+4. The real Somali Focus logo is bundled and displays automatically —
    nothing to do here. Only visit Appearance → Customize → Site
    Identity if you want to override it with a different or
    higher-resolution logo file.
-6. Create pages and assign the bundled page templates under
-   Page Attributes → Template:
-   - About Page → `/about/`
-   - Training Page → `/training/`
-   - Advisory Page → `/advisory/`
-   - Research Page → `/research/`
-   - Services Overview Page → `/services/`
-   - Contact Page → `/contact/`
-7. Settings → Reading: set the homepage to a static page and choose a
-   page using the default template as the "Posts page" — or simply
-   leave "Your homepage displays: Your latest posts" off and let the
-   theme's `front-page.php` render automatically once a static front
-   page exists (any static page works as the front page target).
-8. Somali Focus → Settings (in the plugin): enter real organization
+5. Somali Focus → Settings (in the plugin): enter real organization
    info, social links, homepage hero/about copy and impact statistics.
+
+If you installed the plugin before this automatic setup existed, or
+deleted a page/menu while testing, run it (or re-run it — it's safe
+either way, it only creates what's missing) from
+**Somali Focus → Dashboard → "Set Up Site Structure"**.
 
 == Frequently Asked Questions ==
 
@@ -75,6 +69,26 @@ The theme is a classic (non-block) theme with full Gutenberg content
 editing support. It does not depend on Elementor, Divi or WPBakery.
 
 == Changelog ==
+
+= 2.0.0 =
+* Fonts are now self-hosted (Plus Jakarta Sans + Merriweather,
+  `assets/fonts/`) — no external Google Fonts request.
+* Added `taxonomy.php` — Course/Advisory/Research categories, Expertise
+  and Sector archives now render each item with its correct card
+  component instead of falling back to generic blog-post styling.
+* Fixed: every card thumbnail (course, advisory, research, expert,
+  blog, testimonial, and single-page hero images) now has an explicit
+  alt-text fallback to the post title, instead of depending entirely on
+  the Media Library's stored alt text.
+* Fixed: the impact-statistics grid now collapses to one column on the
+  smallest phone screens, matching every other grid on the site.
+* Fixed: the footer's "Terms & Conditions" link only renders once a
+  page actually exists at that slug, instead of always linking to a
+  guaranteed 404 on a fresh install.
+* Training/Advisory/Research landing pages gained a "View All
+  Courses/Projects/Publications" link to their respective archives
+  (now reachable, see the Core plugin's 2.0.0 changelog for the slug fix).
+* Requires **Somali Focus Core 2.0.0** or later.
 
 = 1.5.0 =
 * Real Somali Focus logo now bundled as the default brand asset (header,

@@ -676,7 +676,7 @@ p:last-child { margin-bottom: 0; }
 
 @media (max-width: 640px) {
 	.core-services__grid, .card-grid--3, .experts-grid, .values-grid, .testimonials-grid,
-	.sectors-grid, .partners-grid, .feature-grid, .service-detail__areas { grid-template-columns: 1fr; }
+	.sectors-grid, .partners-grid, .feature-grid, .service-detail__areas, .stats-grid { grid-template-columns: 1fr; }
 	.approach-steps { grid-template-columns: 1fr; text-align: left; }
 	.approach-step { display: flex; align-items: flex-start; gap: 1rem; text-align: left; }
 	.approach-step__icon { margin: 0; flex-shrink: 0; }

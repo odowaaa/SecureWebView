@@ -21,7 +21,7 @@ $sf_linkedin  = sf_theme_meta( $sf_post, 'linkedin' );
 <article class="expert-card sf-reveal">
 	<a class="expert-card__media" href="<?php echo esc_url( $sf_permalink ); ?>">
 		<?php if ( has_post_thumbnail( $sf_post ) ) : ?>
-			<?php echo get_the_post_thumbnail( $sf_post, 'sf-portrait', array( 'loading' => 'lazy' ) ); ?>
+			<?php echo get_the_post_thumbnail( $sf_post, 'sf-portrait', array( 'loading' => 'lazy', 'alt' => get_the_title( $sf_post ) ) ); ?>
 		<?php else : ?>
 			<span class="expert-card__initial"><?php echo esc_html( mb_substr( get_the_title( $sf_post ), 0, 1 ) ); ?></span>
 		<?php endif; ?>
