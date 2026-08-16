@@ -2,12 +2,12 @@
 # This file is distributed under the GPLv2 (or later) license.
 msgid ""
 msgstr ""
-"Project-Id-Version: Somali Focus Core 2.1.0\n"
+"Project-Id-Version: Somali Focus Core 3.0.0\n"
 "Report-Msgid-Bugs-To: https://somalifocus.org\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-16T09:27:07+00:00\n"
+"POT-Creation-Date: 2026-08-16T14:25:20+00:00\n"
 "X-Generator: somali-focus-pot-scanner\n"
 "Language: en\n"
 
@@ -15,15 +15,23 @@ msgstr ""
 msgid "Abstract"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:140
+#: somali-focus-core/admin/settings-page.php:180
 msgid "Accepts a YouTube link, a Vimeo link, or a direct video file URL (.mp4/.webm). The poster image is shown before the visitor presses play, and used as a fallback if the URL cannot be embedded."
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:222
+msgid "Ad Code"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:214
+msgid "Advertising (Optional)"
 msgstr ""
 
 #: somali-focus-core/templates/archive-sf_advisory.php:12
 msgid "Advisory Projects"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:109
+#: somali-focus-core/includes/shortcodes.php:132
 msgid "Advisory"
 msgstr ""
 
@@ -31,11 +39,15 @@ msgstr ""
 msgid "Authors"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:114
+#: somali-focus-core/includes/shortcodes.php:137
 msgid "Budget Range"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:165
+#: somali-focus-core/includes/shortcodes.php:64
+msgid "By submitting this form, you agree to be contacted about your request."
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:205
 msgid "CTA Title"
 msgstr ""
 
@@ -71,9 +83,13 @@ msgstr ""
 msgid "Education"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:72
-#: somali-focus-core/includes/shortcodes.php:103
+#: somali-focus-core/includes/shortcodes.php:94
+#: somali-focus-core/includes/shortcodes.php:126
 msgid "Email"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:216
+msgid "Every ad slot ships disabled and empty. Nothing is shown anywhere on the site unless you tick \"Enabled\" and paste code for that specific slot below. Ads are always labeled \"Advertisement\" and rendered in their own container, distinct from page content."
 msgstr ""
 
 #: somali-focus-core/templates/single-sf_expert.php:27
@@ -84,8 +100,8 @@ msgstr ""
 msgid "Fee"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:69
-#: somali-focus-core/includes/shortcodes.php:101
+#: somali-focus-core/includes/shortcodes.php:91
+#: somali-focus-core/includes/shortcodes.php:124
 msgid "Full Name"
 msgstr ""
 
@@ -98,31 +114,31 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: somali-focus-core/admin/admin-menu.php:88
+#: somali-focus-core/admin/admin-menu.php:104
 msgid "Go to Settings"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:143
+#: somali-focus-core/admin/settings-page.php:183
 msgid "Homepage — About"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:162
+#: somali-focus-core/admin/settings-page.php:202
 msgid "Homepage — Final Call To Action"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:119
+#: somali-focus-core/admin/settings-page.php:159
 msgid "Homepage — Hero"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:152
+#: somali-focus-core/admin/settings-page.php:192
 msgid "Homepage — Impact Statistics"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:131
+#: somali-focus-core/admin/settings-page.php:171
 msgid "Homepage — Welcome Video"
 msgstr ""
 
-#: somali-focus-core/admin/admin-menu.php:85
+#: somali-focus-core/admin/admin-menu.php:96
 msgid "Install / Refill Demo Content"
 msgstr ""
 
@@ -138,12 +154,12 @@ msgstr ""
 msgid "Manage all Training, Advisory, Research and site content from this menu. The active theme reads everything below automatically."
 msgstr ""
 
-#: somali-focus-core/admin/admin-menu.php:103
+#: somali-focus-core/admin/admin-menu.php:119
 msgid "Manage"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:74
-#: somali-focus-core/includes/shortcodes.php:115
+#: somali-focus-core/includes/shortcodes.php:96
+#: somali-focus-core/includes/shortcodes.php:138
 msgid "Message"
 msgstr ""
 
@@ -151,8 +167,8 @@ msgstr ""
 msgid "Methodology"
 msgstr ""
 
-#: somali-focus-core/admin/admin-menu.php:129
-#: somali-focus-core/admin/admin-menu.php:141
+#: somali-focus-core/admin/admin-menu.php:145
+#: somali-focus-core/admin/admin-menu.php:157
 msgid "New"
 msgstr ""
 
@@ -176,7 +192,7 @@ msgstr ""
 msgid "No research items are currently listed."
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:103
+#: somali-focus-core/admin/settings-page.php:143
 msgid "Office Hours"
 msgstr ""
 
@@ -184,24 +200,24 @@ msgstr ""
 msgid "Only PDF files are allowed for research reports."
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:132
+#: somali-focus-core/admin/settings-page.php:172
 msgid "Optional. Add a short (60 seconds or less works best) welcome video introducing Somali Focus. It appears right under the hero on the homepage. Leave the URL blank to hide this section."
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:94
+#: somali-focus-core/admin/settings-page.php:134
 msgid "Organization Information"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:97
+#: somali-focus-core/admin/settings-page.php:137
 msgid "Organization Name"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:70
-#: somali-focus-core/includes/shortcodes.php:102
+#: somali-focus-core/includes/shortcodes.php:92
+#: somali-focus-core/includes/shortcodes.php:125
 msgid "Organization"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:111
+#: somali-focus-core/includes/shortcodes.php:134
 msgid "Other"
 msgstr ""
 
@@ -209,9 +225,14 @@ msgstr ""
 msgid "Our Experts"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:100
-#: somali-focus-core/includes/shortcodes.php:73
-#: somali-focus-core/includes/shortcodes.php:104
+#: somali-focus-core/admin/admin-menu.php:99
+#: somali-focus-core/includes/demo-content.php:163
+msgid "Permanently delete all demo content? This only removes items tagged as demo — anything you've added or edited yourself is not affected."
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:140
+#: somali-focus-core/includes/shortcodes.php:95
+#: somali-focus-core/includes/shortcodes.php:127
 msgid "Phone"
 msgstr ""
 
@@ -220,20 +241,20 @@ msgstr ""
 msgid "Please provide your name and a valid email address."
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:71
+#: somali-focus-core/includes/shortcodes.php:93
 msgid "Position"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:136
+#: somali-focus-core/admin/settings-page.php:176
 msgid "Poster / Thumbnail Image"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:124
-#: somali-focus-core/admin/settings-page.php:167
+#: somali-focus-core/admin/settings-page.php:164
+#: somali-focus-core/admin/settings-page.php:207
 msgid "Primary Button Text"
 msgstr ""
 
-#: somali-focus-core/includes/site-setup.php:110
+#: somali-focus-core/includes/site-setup.php:200
 msgid "Primary Menu"
 msgstr ""
 
@@ -253,32 +274,36 @@ msgstr ""
 msgid "Registration"
 msgstr ""
 
+#: somali-focus-core/admin/admin-menu.php:100
+msgid "Remove All Demo Content"
+msgstr ""
+
 #: somali-focus-core/templates/archive-sf_research.php:12
 msgid "Research & Publications"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:110
+#: somali-focus-core/includes/shortcodes.php:133
 msgid "Research"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:174
+#: somali-focus-core/admin/settings-page.php:228
 msgid "Save Settings"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:126
-#: somali-focus-core/admin/settings-page.php:169
+#: somali-focus-core/admin/settings-page.php:166
+#: somali-focus-core/admin/settings-page.php:209
 msgid "Secondary Button Text"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:117
+#: somali-focus-core/includes/shortcodes.php:141
 msgid "Send Request"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:106
+#: somali-focus-core/includes/shortcodes.php:129
 msgid "Service Required"
 msgstr ""
 
-#: somali-focus-core/admin/admin-menu.php:82
+#: somali-focus-core/admin/admin-menu.php:93
 msgid "Set Up Site Structure (Pages & Menu)"
 msgstr ""
 
@@ -286,11 +311,11 @@ msgstr ""
 msgid "Site structure check complete — any missing pages or the primary menu have been created."
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:108
+#: somali-focus-core/admin/settings-page.php:148
 msgid "Social Media"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:88
+#: somali-focus-core/admin/settings-page.php:128
 msgid "Somali Focus Settings"
 msgstr ""
 
@@ -314,11 +339,11 @@ msgstr ""
 msgid "Start Date"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:76
+#: somali-focus-core/includes/shortcodes.php:99
 msgid "Submit Registration"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:98
+#: somali-focus-core/admin/settings-page.php:138
 msgid "Tagline"
 msgstr ""
 
@@ -330,7 +355,7 @@ msgstr ""
 msgid "The PDF must be smaller than 20MB."
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:89
+#: somali-focus-core/admin/settings-page.php:129
 msgid "These values power the organization info, homepage copy and statistics used across the site. No code editing required."
 msgstr ""
 
@@ -343,7 +368,7 @@ msgstr ""
 msgid "Training Courses"
 msgstr ""
 
-#: somali-focus-core/includes/shortcodes.php:108
+#: somali-focus-core/includes/shortcodes.php:131
 msgid "Training"
 msgstr ""
 
@@ -359,7 +384,7 @@ msgstr ""
 msgid "View Publication"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:115
+#: somali-focus-core/admin/settings-page.php:155
 msgid "WhatsApp Number"
 msgstr ""
 

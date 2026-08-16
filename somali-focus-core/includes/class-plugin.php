@@ -83,6 +83,7 @@ final class Somali_Focus_Core_Plugin {
 			'includes/taxonomies.php',
 			'includes/meta-fields.php',
 			'includes/settings.php',
+			'includes/ad-slots.php',
 			'includes/forms.php',
 			'includes/notifications.php',
 			'includes/shortcodes.php',

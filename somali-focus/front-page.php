@@ -1,9 +1,9 @@
 <?php
 /**
- * The homepage: hero → welcome video (if configured) → three core
- * services → about → stats → training, advisory & research highlights
- * → approach → sectors → experts → partners → testimonials (if any) →
- * final CTA.
+ * The homepage: hero → welcome video (if configured) → who we are →
+ * three core services → stats → training, advisory & research
+ * highlights → why Somali Focus → approach → sectors → insights →
+ * experts → partners → testimonials (if any) → final CTA.
  *
  * @package SomaliFocus
  */
@@ -16,6 +16,9 @@ get_header();
 
 get_template_part( 'template-parts/hero' );
 get_template_part( 'template-parts/welcome-video' );
+sf_ad_slot( 'after_hero' );
+
+get_template_part( 'template-parts/about', null, array( 'compact' => true ) );
 ?>
 
 <section class="core-services sf-reveal" aria-label="<?php esc_attr_e( 'Our Core Services', 'somali-focus' ); ?>">
@@ -63,8 +66,6 @@ get_template_part( 'template-parts/welcome-video' );
 		?>
 	</div>
 </section>
-
-<?php get_template_part( 'template-parts/about', null, array( 'compact' => true ) ); ?>
 
 <?php get_template_part( 'template-parts/stats' ); ?>
 
@@ -136,6 +137,8 @@ if ( ! empty( $sf_research ) ) :
 endif;
 ?>
 
+<?php get_template_part( 'template-parts/why-somali-focus' ); ?>
+
 <?php get_template_part( 'template-parts/approach' ); ?>
 
 <?php get_template_part( 'template-parts/sectors' ); ?>
@@ -163,44 +166,9 @@ if ( ! empty( $sf_insights ) ) :
 	<?php
 endif;
 
-$sf_experts = sf_theme_get_experts( 4 );
-if ( ! empty( $sf_experts ) ) :
-	?>
-	<section class="experts-section sf-reveal" aria-label="<?php esc_attr_e( 'Our Experts', 'somali-focus' ); ?>">
-		<div class="container">
-			<header class="section-header section-header--center">
-				<p class="eyebrow"><?php esc_html_e( 'Meet The Team', 'somali-focus' ); ?></p>
-				<h2 class="section-title"><?php esc_html_e( 'Our Experts', 'somali-focus' ); ?></h2>
-			</header>
-			<div class="experts-grid">
-				<?php foreach ( $sf_experts as $sf_expert ) : ?>
-					<?php get_template_part( 'template-parts/expert-card', null, array( 'post' => $sf_expert ) ); ?>
-				<?php endforeach; ?>
-			</div>
-			<p class="section-cta"><a class="btn btn--outline" href="<?php echo esc_url( home_url( '/experts/' ) ); ?>"><?php esc_html_e( 'Meet All Experts', 'somali-focus' ); ?></a></p>
-		</div>
-	</section>
-	<?php
-endif;
+get_template_part( 'template-parts/experts-section', null, array( 'count' => 4 ) );
 
-$sf_partners = sf_theme_get_partners( 12 );
-if ( ! empty( $sf_partners ) ) :
-	?>
-	<section class="partners-section sf-reveal" aria-label="<?php esc_attr_e( 'Our Partners', 'somali-focus' ); ?>">
-		<div class="container">
-			<header class="section-header section-header--center">
-				<p class="eyebrow"><?php esc_html_e( 'Trusted By', 'somali-focus' ); ?></p>
-				<h2 class="section-title"><?php esc_html_e( 'Partners & Clients', 'somali-focus' ); ?></h2>
-			</header>
-			<div class="partners-grid">
-				<?php foreach ( $sf_partners as $sf_partner ) : ?>
-					<?php get_template_part( 'template-parts/partner-card', null, array( 'post' => $sf_partner ) ); ?>
-				<?php endforeach; ?>
-			</div>
-		</div>
-	</section>
-	<?php
-endif;
+get_template_part( 'template-parts/partners-section', null, array( 'count' => 12 ) );
 
 $sf_testimonials = sf_theme_get_testimonials( 3 );
 if ( ! empty( $sf_testimonials ) ) :

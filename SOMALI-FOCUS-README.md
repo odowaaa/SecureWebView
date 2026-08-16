@@ -16,6 +16,49 @@ was pre-configured against this repo. If you'd rather they live in
 their own repository, just copy both folders out; neither depends on
 anything else in this codebase.
 
+## What's new in 3.0
+
+A full v3.0 audit (`V3-AUDIT.md`) covering UX, SEO, performance, content and
+Google/AdSense readiness led to this release. Results are in
+`V3-PRODUCTION-READINESS.md` — an honest PASS/NEEDS WORK table per page and
+system, plus an explicit AdSense-readiness section. Nothing was rebuilt from
+scratch, the plugin/theme split is unchanged, and no content was fabricated.
+
+* **Legal foundation.** Privacy Policy and Terms of Use pages are now
+  created automatically (with clearly-marked placeholder text pulling your
+  org name/email from Settings) and the Privacy Policy page is registered
+  with WordPress's native Privacy Policy setting. **You still need to fill
+  in your organization's real legal details before launch.**
+* **Ad-slot architecture.** 7 optional, off-by-default ad placements
+  (header, after-hero, before/in/after content, sidebar, footer) — configure
+  at Somali Focus → Settings → Advertising. Nothing renders, and no layout
+  space is reserved, until you enable a slot and paste code into it.
+* **Demo content is now safely removable.** Every demo Course/Advisory/
+  Research/Expert/Partner/Testimonial post is tagged on creation. Somali
+  Focus → Dashboard shows a "Remove All Demo Content" button (with a
+  confirmation prompt) once tagged content is detected — it never touches
+  real content you've added.
+* **Homepage reorder + new "Why Somali Focus" section**, so the flow reads
+  Who We Are → Core Services → Highlights → Why Us → Approach → Sectors →
+  Insights → Team → Partners → Testimonials → CTA.
+* **About page enrichment:** added "What We Do," "Sectors We Serve," and
+  "Team" sections, reusing the same card components as the homepage.
+* **404 and empty search pages** now show popular-page shortcuts instead of
+  a dead end; search results show a result count.
+* SEO: empty archive/search pages get `noindex,follow`; added Person schema
+  for Experts and sitewide WebSite schema (both skipped automatically if an
+  SEO plugin already provides structured data).
+* Performance: `decoding="async"` added alongside `loading="lazy"` on every
+  card and single-page thumbnail.
+* A privacy/consent line was added to both public forms, near the submit
+  button.
+
+**Before you go live or apply for AdSense:** read
+`V3-PRODUCTION-READINESS.md` §9. The code is structurally ready; the demo
+Course/Advisory/Research/testimonial/partner content and the legal-page
+placeholders still need to be replaced with your organization's real
+information — that step can only be done by you.
+
 ## What's new in 2.1
 
 * **Homepage welcome video.** New optional section right under the

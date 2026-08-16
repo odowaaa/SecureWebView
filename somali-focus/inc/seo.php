@@ -54,11 +54,34 @@ function sf_meta_description() {
 }
 
 /**
- * Print meta description, canonical, Open Graph and Twitter Card tags.
+ * Whether the current view is an archive/search results page with zero
+ * items — a thin/empty page that shouldn't be offered to Google for
+ * indexing, even though visitors can still browse to it directly.
+ *
+ * @return bool
+ */
+function sf_is_thin_archive() {
+	if ( is_search() ) {
+		return true;
+	}
+	if ( ! is_archive() ) {
+		return false;
+	}
+	global $wp_query;
+	return $wp_query instanceof WP_Query && 0 === (int) $wp_query->post_count;
+}
+
+/**
+ * Print meta description, canonical, Open Graph, Twitter Card and robots
+ * tags.
  */
 function sf_seo_head_tags() {
 	if ( sf_seo_plugin_active() ) {
 		return;
+	}
+
+	if ( sf_is_thin_archive() ) {
+		echo '<meta name="robots" content="noindex,follow">' . "\n";
 	}
 
 	$description = sf_meta_description();

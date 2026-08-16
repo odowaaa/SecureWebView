@@ -449,6 +449,18 @@ p:last-child { margin-bottom: 0; }
 .stat-block__label { display: block; margin-top: 0.5rem; color: rgba(255,255,255,0.65); font-weight: 600; font-size: 0.95rem; }
 
 /* ==========================================================================
+   Why Somali Focus
+   ========================================================================== */
+
+.why-section { padding: 5rem 0; background: var(--sf-gray-50); }
+.why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.why-card { background: var(--sf-white); padding: 1.75rem; border: 1px solid var(--sf-gray-200); border-radius: var(--sf-radius); text-align: center; }
+.why-card__icon { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: var(--sf-blue-light); color: var(--sf-blue); margin-bottom: 1rem; }
+.why-card:nth-child(even) .why-card__icon { background: var(--sf-red-light); color: var(--sf-red); }
+.why-card__title { font-size: 1.05rem; margin-bottom: 0.4rem; }
+.why-card__text { font-size: 0.9rem; color: var(--sf-gray-600); }
+
+/* ==========================================================================
    Approach steps
    ========================================================================== */
 
@@ -583,6 +595,8 @@ p:last-child { margin-bottom: 0; }
 .page-hero { padding: 3rem 0 3.5rem; background: var(--sf-gray-50); border-bottom: 1px solid var(--sf-gray-200); }
 .page-hero__title { font-family: var(--sf-font-serif); font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
 .page-hero__description { color: var(--sf-gray-600); font-size: 1.05rem; max-width: 65ch; }
+.sf-404-links a { text-decoration: underline; text-underline-offset: 2px; }
+.sf-404-links a:hover { color: var(--sf-blue-dark); }
 .page-hero__meta { color: var(--sf-gray-600); font-size: 0.9rem; }
 
 .sf-breadcrumbs { margin-bottom: 1rem; }
@@ -657,7 +671,9 @@ p:last-child { margin-bottom: 0; }
 }
 .sf-field input:focus, .sf-field select:focus, .sf-field textarea:focus { border-color: var(--sf-blue); outline: none; }
 .sf-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.25rem; }
-.sf-field--wide, .sf-field--submit, .sf-field--honeypot { grid-column: 1 / -1; }
+.sf-field--wide, .sf-field--submit, .sf-field--honeypot, .sf-field--consent { grid-column: 1 / -1; }
+.sf-field--consent { color: var(--sf-gray-600); font-size: 0.85rem; }
+.sf-field--consent a { color: var(--sf-blue); text-decoration: underline; }
 .sf-btn--primary { background: var(--sf-blue); }
 .sf-btn--primary:hover { background: var(--sf-blue-dark); }
 
@@ -693,6 +709,30 @@ p:last-child { margin-bottom: 0; }
 .search-form__submit .sf-icon { width: 18px; height: 18px; }
 
 /* ==========================================================================
+   Ad slots — off by default; only rendered at all once an admin enables
+   a specific slot in Somali Focus → Settings → Advertising.
+   ========================================================================== */
+
+.sf-ad-slot {
+	margin: 1.75rem auto;
+	max-width: 100%;
+	overflow-x: auto;
+	text-align: center;
+}
+.sf-ad-slot__label {
+	display: block;
+	font-size: .7rem;
+	font-weight: 700;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+	color: var(--sf-gray-400);
+	margin-bottom: .5rem;
+}
+.sf-ad-slot--header_top { margin: 0; padding: .75rem 1.5rem; background: var(--sf-gray-50); border-bottom: 1px solid var(--sf-gray-200); }
+.sf-ad-slot--footer { margin: 0 0 1.5rem; }
+.sf-ad-slot--sidebar { margin-top: 0; }
+
+/* ==========================================================================
    Icons
    ========================================================================== */
 
@@ -714,7 +754,7 @@ p:last-child { margin-bottom: 0; }
    ========================================================================== */
 
 @media (max-width: 1100px) {
-	.core-services__grid, .card-grid--3, .experts-grid, .values-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+	.core-services__grid, .card-grid--3, .experts-grid, .values-grid, .testimonials-grid, .why-grid { grid-template-columns: repeat(2, 1fr); }
 	.sectors-grid, .partners-grid, .feature-grid { grid-template-columns: repeat(3, 1fr); }
 	.approach-steps { grid-template-columns: repeat(3, 1fr); row-gap: 2.5rem; }
 	.approach-steps::before { display: none; }
@@ -737,7 +777,7 @@ p:last-child { margin-bottom: 0; }
 
 @media (max-width: 640px) {
 	.core-services__grid, .card-grid--3, .experts-grid, .values-grid, .testimonials-grid,
-	.sectors-grid, .partners-grid, .feature-grid, .service-detail__areas, .stats-grid { grid-template-columns: 1fr; }
+	.sectors-grid, .partners-grid, .feature-grid, .service-detail__areas, .stats-grid, .why-grid { grid-template-columns: 1fr; }
 	.approach-steps { grid-template-columns: 1fr; text-align: left; }
 	.approach-step { display: flex; align-items: flex-start; gap: 1rem; text-align: left; }
 	.approach-step__icon { margin: 0; flex-shrink: 0; }

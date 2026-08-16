@@ -23,7 +23,7 @@ $sf_tag     = $sf_website ? 'a' : 'span';
 	title="<?php echo esc_attr( get_the_title( $sf_post ) ); ?>"
 >
 	<?php if ( has_post_thumbnail( $sf_post ) ) : ?>
-		<?php echo get_the_post_thumbnail( $sf_post, 'sf-logo-wide', array( 'loading' => 'lazy', 'alt' => get_the_title( $sf_post ) ) ); ?>
+		<?php echo get_the_post_thumbnail( $sf_post, 'sf-logo-wide', array( 'loading' => 'lazy', 'decoding' => 'async', 'alt' => get_the_title( $sf_post ) ) ); ?>
 	<?php else : ?>
 		<span class="partner-logo__text"><?php echo esc_html( get_the_title( $sf_post ) ); ?></span>
 	<?php endif; ?>

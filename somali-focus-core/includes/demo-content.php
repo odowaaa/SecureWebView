@@ -60,8 +60,110 @@ function somali_focus_insert_demo_post( $post_type, $title, $content, $meta = ar
 	foreach ( $meta as $key => $value ) {
 		update_post_meta( $post_id, '_sf_' . $key, $value );
 	}
+	// Tag every demo post so it can be told apart from real content an
+	// admin has since added, and safely removed as a batch — see
+	// somali_focus_remove_demo_content() below.
+	update_post_meta( $post_id, '_sf_demo_content', 1 );
 	return $post_id;
 }
+
+/**
+ * Post types that can hold demo content.
+ *
+ * @return string[]
+ */
+function somali_focus_demo_post_types() {
+	return array( 'sf_course', 'sf_advisory', 'sf_research', 'sf_expert', 'sf_partner', 'sf_testimonial' );
+}
+
+/**
+ * Whether any demo-tagged content currently exists anywhere on the site.
+ *
+ * @return bool
+ */
+function somali_focus_has_demo_content() {
+	$found = get_posts(
+		array(
+			'post_type'      => somali_focus_demo_post_types(),
+			'post_status'    => 'any',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'meta_key'       => '_sf_demo_content', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+			'no_found_rows'  => true,
+		)
+	);
+	return ! empty( $found );
+}
+
+/**
+ * Permanently delete every post tagged as demo content, across all
+ * demo-capable post types. Untagged posts — anything an admin created or
+ * edited themselves — are never touched, so real content is always safe.
+ *
+ * @return int Number of posts removed.
+ */
+function somali_focus_remove_demo_content() {
+	$demo_posts = get_posts(
+		array(
+			'post_type'      => somali_focus_demo_post_types(),
+			'post_status'    => 'any',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+			'meta_key'       => '_sf_demo_content', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+			'no_found_rows'  => true,
+		)
+	);
+
+	$removed = 0;
+	foreach ( $demo_posts as $post_id ) {
+		if ( wp_delete_post( $post_id, true ) ) {
+			$removed++;
+		}
+	}
+	return $removed;
+}
+
+/**
+ * "Remove All Demo Content" dashboard action.
+ */
+function somali_focus_handle_remove_demo_content() {
+	if ( ! current_user_can( somali_focus_manage_cap() ) ) {
+		wp_die( esc_html__( 'You do not have permission to do this.', 'somali-focus' ), 403 );
+	}
+	somali_focus_verify_nonce_or_die( 'somali_focus_remove_demo_content' );
+	$removed = somali_focus_remove_demo_content();
+	wp_safe_redirect( add_query_arg( 'sf_demo_removed', (int) $removed, admin_url( 'admin.php?page=somali-focus' ) ) );
+	exit;
+}
+add_action( 'admin_post_somali_focus_remove_demo_content', 'somali_focus_handle_remove_demo_content' );
+
+/**
+ * A persistent, honest reminder on every Somali Focus admin screen while
+ * demo/placeholder content is still present — the single biggest thing
+ * standing between this site and being ready for real visitors (or an
+ * AdSense review, if that's the eventual goal).
+ */
+function somali_focus_demo_content_admin_notice() {
+	$screen = get_current_screen();
+	if ( ! $screen ) {
+		return;
+	}
+	$on_somali_focus_page = 'toplevel_page_somali-focus' === $screen->id
+		|| 0 === strpos( (string) $screen->id, 'somali-focus_page_' )
+		|| in_array( $screen->post_type, somali_focus_demo_post_types(), true );
+	if ( ! $on_somali_focus_page ) {
+		return;
+	}
+	if ( ! current_user_can( somali_focus_manage_cap() ) || ! somali_focus_has_demo_content() ) {
+		return;
+	}
+	$url = wp_nonce_url( admin_url( 'admin-post.php?action=somali_focus_remove_demo_content' ), 'somali_focus_remove_demo_content' );
+	echo '<div class="notice notice-warning"><p>' .
+		wp_kses_post( __( '<strong>Demo content is currently active</strong> — the courses, advisory projects, research, experts, partners and testimonials shown on this site are fictional placeholders, not real Somali Focus information. Replace them with real content before this site is visible to the public or submitted anywhere (including an AdSense review).', 'somali-focus' ) ) .
+		'</p><p><a href="' . esc_url( $url ) . '" class="button" onclick="return confirm(\'' . esc_js( __( 'Permanently delete all demo content? This only removes items tagged as demo — anything you\'ve added or edited yourself is not affected.', 'somali-focus' ) ) . '\');">' .
+		esc_html__( 'Remove All Demo Content', 'somali-focus' ) . '</a></p></div>';
+}
+add_action( 'admin_notices', 'somali_focus_demo_content_admin_notice' );
 
 /**
  * Courses.

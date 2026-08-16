@@ -85,6 +85,20 @@ function sf_schema_organization() {
 }
 
 /**
+ * Sitewide WebSite schema (homepage only, the conventional placement).
+ */
+function sf_schema_website() {
+	sf_print_schema(
+		array(
+			'@context' => 'https://schema.org',
+			'@type'    => 'WebSite',
+			'name'     => sf_theme_option( 'org_name', get_bloginfo( 'name' ) ),
+			'url'      => home_url( '/' ),
+		)
+	);
+}
+
+/**
  * BreadcrumbList schema mirroring the visible sf_breadcrumbs() trail.
  */
 function sf_schema_breadcrumbs() {
@@ -157,6 +171,44 @@ function sf_schema_course() {
 }
 
 /**
+ * Person schema for single Expert profile pages.
+ */
+function sf_schema_person() {
+	$post_id = get_the_ID();
+
+	$data = array(
+		'@context' => 'https://schema.org',
+		'@type'    => 'Person',
+		'name'     => get_the_title(),
+		'worksFor' => array(
+			'@type' => 'Organization',
+			'name'  => sf_theme_option( 'org_name', get_bloginfo( 'name' ) ),
+		),
+	);
+
+	$position = sf_theme_meta( $post_id, 'position' );
+	if ( $position ) {
+		$data['jobTitle'] = $position;
+	}
+
+	$email = sf_theme_meta( $post_id, 'email' );
+	if ( $email ) {
+		$data['email'] = $email;
+	}
+
+	$same_as = array_values( array_filter( array( sf_theme_meta( $post_id, 'linkedin' ), sf_theme_meta( $post_id, 'website' ) ) ) );
+	if ( $same_as ) {
+		$data['sameAs'] = $same_as;
+	}
+
+	if ( has_post_thumbnail( $post_id ) ) {
+		$data['image'] = get_the_post_thumbnail_url( $post_id, 'sf-portrait' );
+	}
+
+	sf_print_schema( $data );
+}
+
+/**
  * Article schema for single blog posts.
  */
 function sf_schema_article() {
@@ -192,6 +244,9 @@ function sf_output_schema() {
 	if ( ! sf_seo_plugin_active() ) {
 		sf_schema_organization();
 		sf_schema_breadcrumbs();
+		if ( is_front_page() ) {
+			sf_schema_website();
+		}
 		if ( is_singular( 'post' ) ) {
 			sf_schema_article();
 		}
@@ -199,6 +254,9 @@ function sf_output_schema() {
 
 	if ( is_singular( 'sf_course' ) ) {
 		sf_schema_course();
+	}
+	if ( is_singular( 'sf_expert' ) ) {
+		sf_schema_person();
 	}
 }
 add_action( 'wp_footer', 'sf_output_schema' );

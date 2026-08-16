@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array
  */
 function somali_focus_default_settings() {
-	return array(
+	$defaults = array(
 		// Organization.
 		'org_name'                    => 'Somali Focus',
 		'tagline'                     => __( 'Training, Advisory & Research', 'somali-focus' ),
@@ -72,6 +72,16 @@ function somali_focus_default_settings() {
 		// Notifications.
 		'notification_email'          => '',
 	);
+
+	// Advertising — every slot ships disabled with empty code.
+	if ( function_exists( 'somali_focus_ad_slots' ) ) {
+		foreach ( array_keys( somali_focus_ad_slots() ) as $slot_id ) {
+			$defaults[ "ad_{$slot_id}_enabled" ] = '';
+			$defaults[ "ad_{$slot_id}_code" ]    = '';
+		}
+	}
+
+	return $defaults;
 }
 
 /**
@@ -98,6 +108,10 @@ function somali_focus_settings_schema() {
 			$schema[ $key ] = 'phone';
 		} elseif ( in_array( $key, $int_fields, true ) ) {
 			$schema[ $key ] = 'int';
+		} elseif ( 1 === preg_match( '/^ad_.+_enabled$/', $key ) ) {
+			$schema[ $key ] = 'checkbox';
+		} elseif ( 1 === preg_match( '/^ad_.+_code$/', $key ) ) {
+			$schema[ $key ] = 'raw_html';
 		} else {
 			$schema[ $key ] = 'text';
 		}
@@ -134,6 +148,16 @@ function somali_focus_sanitize_settings( $input ) {
 				break;
 			case 'int':
 				$clean[ $key ] = $raw ? absint( $raw ) : '';
+				break;
+			case 'checkbox':
+				$clean[ $key ] = $raw ? '1' : '';
+				break;
+			case 'raw_html':
+				// Deliberately NOT run through sanitize_textarea_field()/
+				// wp_kses_post() — both would strip the <script>/<ins> tags
+				// this field exists to hold. See includes/ad-slots.php for
+				// the trusted-admin-field rationale.
+				$clean[ $key ] = $raw;
 				break;
 			default:
 				$clean[ $key ] = sanitize_text_field( $raw );

@@ -4,7 +4,7 @@ Tags: custom-menu, custom-logo, featured-images, threaded-comments, translation-
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 2.1.0
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,35 @@ The theme is a classic (non-block) theme with full Gutenberg content
 editing support. It does not depend on Elementor, Divi or WPBakery.
 
 == Changelog ==
+
+= 3.0.0 =
+* New: "Why Somali Focus" homepage section (four differentiator cards)
+  and a reorganized homepage flow — hero, welcome video, who we are,
+  three core services, stats, training/advisory/research highlights,
+  why Somali Focus, approach, sectors, insights, experts, partners,
+  testimonials, final call to action.
+* New: the About page now includes "What We Do" (the three core
+  services), "Sectors We Serve" and a "Team" section, built from the
+  same reusable `template-parts/service-card.php`, `sectors.php` and the
+  newly-extracted `experts-section.php` / `partners-section.php` used on
+  the homepage — no duplicated markup between the two pages.
+* New: 7 optional, off-by-default ad placements (header top, after hero,
+  before/in/after content, sidebar, footer) via the companion plugin's
+  ad-slot settings, each clearly labeled and rendered only once content
+  is configured.
+* New: 404 and empty-search pages now surface a "popular pages"
+  shortcut list (About, Training, Advisory, Research, Insights, Contact)
+  instead of leaving visitors at a dead end; search results also show a
+  result count.
+* Improved: `decoding="async"` added alongside `loading="lazy"` on every
+  card and single-page thumbnail for smoother image rendering.
+* Improved: thin/empty archive and search pages emit `noindex,follow` so
+  they don't compete for search ranking while everything else stays
+  indexable.
+* Improved: Person schema for Expert profiles and sitewide WebSite
+  schema, skipped automatically when an SEO plugin already provides
+  structured data.
+* Requires **Somali Focus Core 3.0.0** or later.
 
 = 2.1.0 =
 * New: homepage welcome-video section, right under the hero. Renders

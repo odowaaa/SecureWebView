@@ -76,6 +76,17 @@ function somali_focus_dashboard_page() {
 		<?php if ( isset( $_GET['sf_site_setup'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
 			<div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Site structure check complete — any missing pages or the primary menu have been created.', 'somali-focus' ); ?></p></div>
 		<?php endif; ?>
+		<?php if ( isset( $_GET['sf_demo_removed'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
+			<div class="notice notice-success is-dismissible"><p>
+				<?php
+				printf(
+					/* translators: %d: number of removed demo posts */
+					esc_html( _n( '%d demo item removed. Any real content you added is untouched.', '%d demo items removed. Any real content you added is untouched.', (int) $_GET['sf_demo_removed'], 'somali-focus' ) ), // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+					(int) $_GET['sf_demo_removed'] // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				);
+				?>
+			</p></div>
+		<?php endif; ?>
 
 		<p>
 			<a class="button button-primary" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=somali_focus_site_setup' ), 'somali_focus_site_setup' ) ); ?>">
@@ -84,6 +95,11 @@ function somali_focus_dashboard_page() {
 			<a class="button" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=somali_focus_seed_demo' ), 'somali_focus_seed_demo' ) ); ?>">
 				<?php esc_html_e( 'Install / Refill Demo Content', 'somali-focus' ); ?>
 			</a>
+			<?php if ( function_exists( 'somali_focus_has_demo_content' ) && somali_focus_has_demo_content() ) : ?>
+				<a class="button" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=somali_focus_remove_demo_content' ), 'somali_focus_remove_demo_content' ) ); ?>" onclick="return confirm('<?php echo esc_js( __( 'Permanently delete all demo content? This only removes items tagged as demo — anything you\'ve added or edited yourself is not affected.', 'somali-focus' ) ); ?>');">
+					<?php esc_html_e( 'Remove All Demo Content', 'somali-focus' ); ?>
+				</a>
+			<?php endif; ?>
 			<a class="button" href="<?php echo esc_url( admin_url( 'admin.php?page=somali-focus-settings' ) ); ?>">
 				<?php esc_html_e( 'Go to Settings', 'somali-focus' ); ?>
 			</a>

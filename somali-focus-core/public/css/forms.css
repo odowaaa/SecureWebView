@@ -14,6 +14,8 @@
 	box-sizing: border-box;
 }
 .sf-field--honeypot { position: absolute !important; left: -9999px !important; top: -9999px !important; height: 0; overflow: hidden; }
+.sf-field--consent { font-size: .85rem; color: #5a6069; }
+.sf-field--consent a { color: inherit; text-decoration: underline; }
 .sf-btn {
 	display: inline-block;
 	padding: .75rem 1.5rem;

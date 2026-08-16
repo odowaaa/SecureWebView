@@ -36,9 +36,13 @@ while ( have_posts() ) :
 
 		<section class="page-content-section sf-reveal">
 			<div class="container container--narrow">
+				<?php sf_ad_slot( 'before_content' ); ?>
+
 				<?php if ( has_post_thumbnail() ) : ?>
-					<div class="single-post__image"><?php the_post_thumbnail( 'sf-hero', array( 'alt' => get_the_title() ) ); ?></div>
+					<div class="single-post__image"><?php the_post_thumbnail( 'sf-hero', array( 'decoding' => 'async', 'alt' => get_the_title() ) ); ?></div>
 				<?php endif; ?>
+
+				<?php sf_ad_slot( 'in_content' ); ?>
 
 				<div class="entry-content">
 					<?php
@@ -64,6 +68,8 @@ while ( have_posts() ) :
 						</div>
 					<?php endif; ?>
 				</footer>
+
+				<?php sf_ad_slot( 'after_content' ); ?>
 			</div>
 		</section>
 

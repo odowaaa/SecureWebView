@@ -20,6 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'somali-focus' ); ?></a>
 
+<?php sf_ad_slot( 'header_top' ); ?>
+
 <header id="masthead" class="site-header" data-sf-header>
 	<div class="site-header__inner container">
 		<div class="site-branding">

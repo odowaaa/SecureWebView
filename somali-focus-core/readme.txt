@@ -4,7 +4,7 @@ Tags: custom-post-type, training, consulting, research
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 2.1.0
+Stable tag: 3.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,6 +72,42 @@ to the address configured in Settings (falls back to the site admin
 email).
 
 == Changelog ==
+
+= 3.0.0 =
+* New: Privacy Policy and Terms of Use pages, created automatically on
+  activation/upgrade with clearly-marked `[bracketed]` placeholder legal
+  text pulling your organization name and email from Settings. The
+  Privacy Policy page is registered with WordPress's native "Privacy
+  Policy Page" setting so the required footer link and admin Privacy
+  guidance both work out of the box. **You must still review and
+  complete these pages with your organization's actual legal details
+  before launch — nothing here is legal advice.**
+* New: optional ad-slot architecture — 7 controlled placements (header
+  top, after hero, before/in/after content, sidebar, footer), each
+  disabled by default and configurable at Somali Focus → Settings →
+  Advertising. Every rendered slot is clearly labeled "Advertisement" in
+  the markup. No ad network is bundled or auto-enabled.
+* New: demo content is now tagged at the point of creation and clearly
+  distinguishable from real content. Somali Focus → Dashboard shows a
+  "Remove All Demo Content" action (confirmation required) once demo
+  posts are detected, so a site can be safely handed over for real
+  production content without guessing which posts are placeholders. This
+  never touches real, non-tagged content you add yourself.
+* New: consent/privacy notice line added to the Registration and Service
+  Request forms, just above the submit button, linking to the Privacy
+  Policy page when one is configured.
+* Improved: search results now include a machine-readable result count,
+  and empty result pages/404s surface popular page shortcuts instead of
+  a dead end.
+* Improved: `decoding="async"` added alongside `loading="lazy"` on every
+  thumbnail across card components and single templates, so the browser
+  can decode images off the main thread.
+* Improved: empty (zero-result) search and archive pages now emit a
+  `noindex,follow` robots meta tag to keep thin pages out of search
+  results without blocking crawling of the rest of the site.
+* Improved: added Person schema for Expert profiles and sitewide WebSite
+  schema (both skipped automatically if an SEO plugin already outputs
+  structured data).
 
 = 2.1.0 =
 * New: homepage welcome video setting (Somali Focus → Settings →

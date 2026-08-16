@@ -25,6 +25,9 @@ $sf_socials = array(
 	</main><!-- #primary -->
 
 	<footer id="colophon" class="site-footer">
+		<div class="container">
+			<?php sf_ad_slot( 'footer' ); ?>
+		</div>
 		<div class="container site-footer__grid">
 
 			<div class="footer-col footer-col--about">

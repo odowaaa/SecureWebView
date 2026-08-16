@@ -23,7 +23,7 @@ $sf_challenge = sf_theme_meta( $sf_post, 'challenge' );
 <article class="card advisory-card sf-reveal">
 	<a class="card__media" href="<?php echo esc_url( $sf_permalink ); ?>">
 		<?php if ( has_post_thumbnail( $sf_post ) ) : ?>
-			<?php echo get_the_post_thumbnail( $sf_post, 'sf-card', array( 'loading' => 'lazy', 'alt' => get_the_title( $sf_post ) ) ); ?>
+			<?php echo get_the_post_thumbnail( $sf_post, 'sf-card', array( 'loading' => 'lazy', 'decoding' => 'async', 'alt' => get_the_title( $sf_post ) ) ); ?>
 		<?php else : ?>
 			<span class="card__media-fallback"><?php sf_icon( 'advisory' ); ?></span>
 		<?php endif; ?>

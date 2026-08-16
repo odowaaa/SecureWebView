@@ -19,26 +19,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * The six template-backed Pages, keyed by slug.
+ * The template-backed Pages, keyed by slug. 'content' is an optional
+ * callable that generates starter post_content (used for the legal
+ * pages, which need real placeholder text rather than an empty body).
  *
  * @return array
  */
 function somali_focus_page_blueprint() {
 	return array(
-		'home'     => array( 'title' => __( 'Home', 'somali-focus' ), 'template' => '' ),
-		'about'    => array( 'title' => __( 'About', 'somali-focus' ), 'template' => 'templates/page-about.php' ),
-		'training' => array( 'title' => __( 'Training', 'somali-focus' ), 'template' => 'templates/page-training.php' ),
-		'advisory' => array( 'title' => __( 'Advisory', 'somali-focus' ), 'template' => 'templates/page-advisory.php' ),
-		'research' => array( 'title' => __( 'Research', 'somali-focus' ), 'template' => 'templates/page-research.php' ),
-		'services' => array( 'title' => __( 'Services', 'somali-focus' ), 'template' => 'templates/page-services.php' ),
-		'contact'  => array( 'title' => __( 'Contact', 'somali-focus' ), 'template' => 'templates/page-contact.php' ),
-		'insights' => array( 'title' => __( 'Insights', 'somali-focus' ), 'template' => '' ),
+		'home'            => array( 'title' => __( 'Home', 'somali-focus' ), 'template' => '' ),
+		'about'           => array( 'title' => __( 'About', 'somali-focus' ), 'template' => 'templates/page-about.php' ),
+		'training'        => array( 'title' => __( 'Training', 'somali-focus' ), 'template' => 'templates/page-training.php' ),
+		'advisory'        => array( 'title' => __( 'Advisory', 'somali-focus' ), 'template' => 'templates/page-advisory.php' ),
+		'research'        => array( 'title' => __( 'Research', 'somali-focus' ), 'template' => 'templates/page-research.php' ),
+		'services'        => array( 'title' => __( 'Services', 'somali-focus' ), 'template' => 'templates/page-services.php' ),
+		'contact'         => array( 'title' => __( 'Contact', 'somali-focus' ), 'template' => 'templates/page-contact.php' ),
+		'insights'        => array( 'title' => __( 'Insights', 'somali-focus' ), 'template' => '' ),
+		'privacy-policy'  => array( 'title' => __( 'Privacy Policy', 'somali-focus' ), 'template' => '', 'content' => 'somali_focus_privacy_policy_placeholder' ),
+		'terms'           => array( 'title' => __( 'Terms & Conditions', 'somali-focus' ), 'template' => '', 'content' => 'somali_focus_terms_placeholder' ),
 	);
 }
 
 /**
  * Create every blueprint Page that doesn't already exist at its slug,
- * assigning the matching theme template.
+ * assigning the matching theme template and any starter content.
  *
  * @return array slug => page ID (existing or newly created).
  */
@@ -52,13 +56,18 @@ function somali_focus_ensure_pages() {
 			continue;
 		}
 
+		$content = '';
+		if ( ! empty( $page['content'] ) && is_callable( $page['content'] ) ) {
+			$content = call_user_func( $page['content'] );
+		}
+
 		$post_id = wp_insert_post(
 			array(
 				'post_type'    => 'page',
 				'post_status'  => 'publish',
 				'post_title'   => $page['title'],
 				'post_name'    => $slug,
-				'post_content' => '',
+				'post_content' => $content,
 			)
 		);
 
@@ -73,8 +82,89 @@ function somali_focus_ensure_pages() {
 		$ids[ $slug ] = $post_id;
 	}
 
+	if ( ! empty( $ids['privacy-policy'] ) && ! get_option( 'wp_page_for_privacy_policy' ) ) {
+		update_option( 'wp_page_for_privacy_policy', $ids['privacy-policy'] );
+	}
+
 	return $ids;
 }
+
+/**
+ * Starter Privacy Policy content. Deliberately structural, not a real
+ * legal document — every claim-bearing line is marked for the site
+ * owner to complete or confirm with their own legal counsel. Organization
+ * name/contact fields pull from Somali Focus → Settings automatically.
+ *
+ * @return string
+ */
+function somali_focus_privacy_policy_placeholder() {
+	$org   = somali_focus_get_option( 'org_name', get_bloginfo( 'name' ) );
+	$email = somali_focus_get_option( 'email', get_option( 'admin_email' ) );
+
+	/* translators: %s: organization name */
+	$intro = sprintf( __( '%s ("we", "us", "our") respects your privacy. This page explains what information we collect through this website and how we use it.', 'somali-focus' ), $org );
+
+	return
+		'<p><em>' . esc_html__( '[This is a starter template, not a finished legal document. Replace the bracketed sections below with your organization\'s actual policy, ideally reviewed by qualified legal counsel before publishing.]', 'somali-focus' ) . '</em></p>' .
+		'<p>' . esc_html( $intro ) . '</p>' .
+		'<h2>' . esc_html__( 'Information We Collect', 'somali-focus' ) . '</h2>' .
+		'<p>' . esc_html__( '[Describe what this site actually collects — typically: name, organization, email, phone and message content submitted through the Training Registration and Service Request forms, plus standard server/analytics logs if applicable.]', 'somali-focus' ) . '</p>' .
+		'<h2>' . esc_html__( 'How We Use Information', 'somali-focus' ) . '</h2>' .
+		'<p>' . esc_html__( '[Describe why — e.g. to process registrations, respond to inquiries, and improve our services. State whether data is shared with any third party and, if so, which one.]', 'somali-focus' ) . '</p>' .
+		'<h2>' . esc_html__( 'Cookies', 'somali-focus' ) . '</h2>' .
+		'<p>' . esc_html__( '[State which cookies this site sets, if any. If you enable advertising or analytics later, update this section before doing so.]', 'somali-focus' ) . '</p>' .
+		'<h2>' . esc_html__( 'Data Retention & Your Rights', 'somali-focus' ) . '</h2>' .
+		'<p>' . esc_html__( '[State how long submitted data is kept, and how a visitor can request access to or deletion of their data.]', 'somali-focus' ) . '</p>' .
+		'<h2>' . esc_html__( 'Contact', 'somali-focus' ) . '</h2>' .
+		'<p>' . sprintf( /* translators: %s: contact email */ esc_html__( 'Questions about this policy can be sent to %s.', 'somali-focus' ), esc_html( $email ) ) . '</p>';
+}
+
+/**
+ * Starter Terms & Conditions content — same placeholder approach as the
+ * Privacy Policy above.
+ *
+ * @return string
+ */
+function somali_focus_terms_placeholder() {
+	$org = somali_focus_get_option( 'org_name', get_bloginfo( 'name' ) );
+
+	return
+		'<p><em>' . esc_html__( '[This is a starter template, not a finished legal document. Replace the bracketed sections below with your organization\'s actual terms, ideally reviewed by qualified legal counsel before publishing.]', 'somali-focus' ) . '</em></p>' .
+		/* translators: %s: organization name */
+		'<p>' . sprintf( esc_html__( 'These terms govern your use of the %s website.', 'somali-focus' ), esc_html( $org ) ) . '</p>' .
+		'<h2>' . esc_html__( 'Use of This Website', 'somali-focus' ) . '</h2>' .
+		'<p>' . esc_html__( '[Describe acceptable use of the site and its content.]', 'somali-focus' ) . '</p>' .
+		'<h2>' . esc_html__( 'Training, Advisory & Research Services', 'somali-focus' ) . '</h2>' .
+		'<p>' . esc_html__( '[Describe registration, cancellation, fee and delivery terms for courses, advisory engagements and research services.]', 'somali-focus' ) . '</p>' .
+		'<h2>' . esc_html__( 'Intellectual Property', 'somali-focus' ) . '</h2>' .
+		'<p>' . esc_html__( '[State ownership of published research, course materials and site content, and any permitted reuse.]', 'somali-focus' ) . '</p>' .
+		'<h2>' . esc_html__( 'Limitation of Liability', 'somali-focus' ) . '</h2>' .
+		'<p>' . esc_html__( '[Add your organization\'s liability position, reviewed by legal counsel.]', 'somali-focus' ) . '</p>' .
+		'<h2>' . esc_html__( 'Contact', 'somali-focus' ) . '</h2>' .
+		'<p>' . esc_html__( '[Restate your contact details or reference the Contact page.]', 'somali-focus' ) . '</p>';
+}
+
+/**
+ * Suggest the data our own forms collect in WordPress's native "Privacy
+ * Policy Guide" panel (Settings → Privacy → Policy Guide), the standard
+ * extension point plugins use to help site owners write an accurate
+ * policy — this only ever populates an editorial suggestion panel, never
+ * live page content.
+ */
+function somali_focus_privacy_policy_suggestion() {
+	if ( ! function_exists( 'wp_add_privacy_policy_content' ) ) {
+		return;
+	}
+	$content = '<p class="wp-policy-help">' . esc_html__( 'Somali Focus Core collects the following through its front-end forms:', 'somali-focus' ) . '</p>' .
+		'<ul>' .
+		'<li>' . esc_html__( 'Training Registration form: full name, organization, position, email, phone, selected course, and an optional message.', 'somali-focus' ) . '</li>' .
+		'<li>' . esc_html__( 'Service Request form: full name, organization, email, phone, service requested, budget range, and message.', 'somali-focus' ) . '</li>' .
+		'</ul>' .
+		'<p>' . esc_html__( 'Both are stored privately in WordPress (never exposed via the REST API or public queries) and are used only to process the registration/request and to email the site administrator a notification.', 'somali-focus' ) . '</p>';
+
+	wp_add_privacy_policy_content( __( 'Somali Focus Core', 'somali-focus' ), wp_kses_post( $content ) );
+}
+add_action( 'admin_init', 'somali_focus_privacy_policy_suggestion' );
 
 /**
  * Point Reading settings at the Home/Insights pages so /insights/ becomes

@@ -33,6 +33,46 @@ function somali_focus_settings_field( $settings, $key, $label, $type = 'text' ) 
 }
 
 /**
+ * Print a labeled checkbox bound to the settings array (stores '1' or '').
+ *
+ * @param array  $settings Current settings values.
+ * @param string $key      Settings key.
+ * @param string $label    Field label.
+ * @param string $help     Optional description under the checkbox.
+ */
+function somali_focus_settings_checkbox_field( $settings, $key, $label, $help = '' ) {
+	$checked = ! empty( $settings[ $key ] );
+	$id      = 'sfset_' . $key;
+	$name    = 'somali_focus_settings[' . $key . ']';
+
+	echo '<tr><th scope="row">' . esc_html( $label ) . '</th><td>';
+	echo '<label for="' . esc_attr( $id ) . '"><input type="checkbox" id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" value="1" ' . checked( $checked, true, false ) . '> ' . esc_html__( 'Enabled', 'somali-focus' ) . '</label>';
+	if ( $help ) {
+		echo '<p class="description">' . esc_html( $help ) . '</p>';
+	}
+	echo '</td></tr>';
+}
+
+/**
+ * Print a code textarea bound to the settings array — used only for the
+ * ad-slot fields, which intentionally hold raw HTML/JS (see
+ * includes/ad-slots.php and the 'raw_html' schema type in settings.php).
+ *
+ * @param array  $settings Current settings values.
+ * @param string $key      Settings key.
+ * @param string $label    Field label.
+ */
+function somali_focus_settings_code_field( $settings, $key, $label ) {
+	$value = isset( $settings[ $key ] ) ? $settings[ $key ] : '';
+	$id    = 'sfset_' . $key;
+	$name  = 'somali_focus_settings[' . $key . ']';
+
+	echo '<tr><th scope="row"><label for="' . esc_attr( $id ) . '">' . esc_html( $label ) . '</label></th><td>';
+	echo '<textarea class="large-text code" rows="4" id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" placeholder="' . esc_attr__( 'Paste your ad network\'s exact code here…', 'somali-focus' ) . '">' . esc_textarea( $value ) . '</textarea>';
+	echo '</td></tr>';
+}
+
+/**
  * Print a media-library image picker bound to the settings array,
  * mirroring the Research PDF picker's button-based pattern.
  *
@@ -170,6 +210,20 @@ function somali_focus_render_settings_page() {
 				somali_focus_settings_field( $settings, 'cta_button_secondary_url', __( 'Secondary Button URL', 'somali-focus' ), 'url' );
 				?>
 			</table>
+
+			<h2 class="title"><?php esc_html_e( 'Advertising (Optional)', 'somali-focus' ); ?></h2>
+			<p>
+				<?php esc_html_e( 'Every ad slot ships disabled and empty. Nothing is shown anywhere on the site unless you tick "Enabled" and paste code for that specific slot below. Ads are always labeled "Advertisement" and rendered in their own container, distinct from page content.', 'somali-focus' ); ?>
+			</p>
+			<?php foreach ( somali_focus_ad_slots() as $slot_id => $slot_label ) : ?>
+				<table class="form-table" role="presentation" style="margin-bottom:0;">
+					<?php
+					somali_focus_settings_checkbox_field( $settings, "ad_{$slot_id}_enabled", $slot_label );
+					somali_focus_settings_code_field( $settings, "ad_{$slot_id}_code", __( 'Ad Code', 'somali-focus' ) );
+					?>
+				</table>
+				<hr style="border:none;border-top:1px solid #dcdcde;margin:0 0 16px;">
+			<?php endforeach; ?>
 
 			<?php submit_button( __( 'Save Settings', 'somali-focus' ) ); ?>
 		</form>

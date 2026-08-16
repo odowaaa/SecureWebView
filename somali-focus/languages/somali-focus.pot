@@ -2,24 +2,24 @@
 # This file is distributed under the GPLv2 (or later) license.
 msgid ""
 msgstr ""
-"Project-Id-Version: Somali Focus 2.1.0\n"
+"Project-Id-Version: Somali Focus 3.0.0\n"
 "Report-Msgid-Bugs-To: https://somalifocus.org\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-16T09:27:07+00:00\n"
+"POT-Creation-Date: 2026-08-16T14:25:20+00:00\n"
 "X-Generator: somali-focus-pot-scanner\n"
 "Language: en\n"
 
-#: somali-focus/front-page.php:79
+#: somali-focus/front-page.php:80
 msgid "01 — Training"
 msgstr ""
 
-#: somali-focus/front-page.php:101
+#: somali-focus/front-page.php:102
 msgid "02 — Advisory"
 msgstr ""
 
-#: somali-focus/front-page.php:123
+#: somali-focus/front-page.php:124
 msgid "03 — Research"
 msgstr ""
 
@@ -39,15 +39,20 @@ msgstr ""
 msgid "About Somali Focus"
 msgstr ""
 
+#: somali-focus/404.php:28
+#: somali-focus/search.php:62
+msgid "About Us"
+msgstr ""
+
 #: somali-focus/single-sf_research.php:44
 msgid "Abstract"
 msgstr ""
 
-#: somali-focus/front-page.php:97
+#: somali-focus/front-page.php:98
 msgid "Advisory Highlight"
 msgstr ""
 
-#: somali-focus/front-page.php:102
+#: somali-focus/front-page.php:103
 #: somali-focus/templates/page-advisory.php:67
 msgid "Advisory Projects"
 msgstr ""
@@ -56,12 +61,14 @@ msgstr ""
 msgid "Advisory Services"
 msgstr ""
 
-#: somali-focus/footer.php:96
+#: somali-focus/404.php:30
+#: somali-focus/footer.php:99
+#: somali-focus/search.php:64
 #: somali-focus/template-parts/hero.php:53
 msgid "Advisory"
 msgstr ""
 
-#: somali-focus/footer.php:124
+#: somali-focus/footer.php:127
 msgid "All rights reserved."
 msgstr ""
 
@@ -73,7 +80,9 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
-#: somali-focus/footer.php:102
+#: somali-focus/404.php:33
+#: somali-focus/footer.php:105
+#: somali-focus/search.php:67
 msgid "Contact"
 msgstr ""
 
@@ -97,7 +106,7 @@ msgstr ""
 msgid "Discuss a Research Project"
 msgstr ""
 
-#: somali-focus/single-sf_research.php:51
+#: somali-focus/single-sf_research.php:53
 msgid "Download Full Report (PDF)"
 msgstr ""
 
@@ -113,7 +122,7 @@ msgstr ""
 msgid "Empowering People. Strengthening Organizations. Generating Evidence."
 msgstr ""
 
-#: somali-focus/front-page.php:104
+#: somali-focus/front-page.php:105
 msgid "Explore Advisory"
 msgstr ""
 
@@ -121,15 +130,15 @@ msgstr ""
 msgid "Explore Our Services"
 msgstr ""
 
-#: somali-focus/front-page.php:126
+#: somali-focus/front-page.php:127
 msgid "Explore Research"
 msgstr ""
 
-#: somali-focus/front-page.php:124
+#: somali-focus/front-page.php:125
 msgid "Featured Research & Publications"
 msgstr ""
 
-#: somali-focus/front-page.php:211
+#: somali-focus/front-page.php:179
 msgid "Feedback"
 msgstr ""
 
@@ -145,7 +154,9 @@ msgstr ""
 msgid "How We Work"
 msgstr ""
 
-#: somali-focus/front-page.php:151
+#: somali-focus/404.php:32
+#: somali-focus/front-page.php:154
+#: somali-focus/search.php:66
 msgid "Insights"
 msgstr ""
 
@@ -153,8 +164,8 @@ msgstr ""
 msgid "Introduction"
 msgstr ""
 
-#: somali-focus/front-page.php:147
-#: somali-focus/front-page.php:152
+#: somali-focus/front-page.php:150
+#: somali-focus/front-page.php:155
 msgid "Latest Insights"
 msgstr ""
 
@@ -162,7 +173,7 @@ msgstr ""
 msgid "Learning Objectives"
 msgstr ""
 
-#: somali-focus/footer.php:126
+#: somali-focus/footer.php:129
 msgid "Legal"
 msgstr ""
 
@@ -170,15 +181,15 @@ msgstr ""
 msgid "LinkedIn profile"
 msgstr ""
 
-#: somali-focus/front-page.php:180
+#: somali-focus/template-parts/experts-section.php:32
 msgid "Meet All Experts"
 msgstr ""
 
-#: somali-focus/front-page.php:172
+#: somali-focus/template-parts/experts-section.php:24
 msgid "Meet The Team"
 msgstr ""
 
-#: somali-focus/header.php:50
+#: somali-focus/header.php:52
 msgid "Menu"
 msgstr ""
 
@@ -210,8 +221,8 @@ msgstr ""
 msgid "No research items are currently listed."
 msgstr ""
 
-#: somali-focus/search.php:53
-msgid "No results found. Try a different search term."
+#: somali-focus/search.php:55
+msgid "No results found. Try a different search term, or check your spelling — the terms below can also help you find what you're looking for."
 msgstr ""
 
 #: somali-focus/taxonomy.php:58
@@ -230,16 +241,20 @@ msgstr ""
 msgid "Office"
 msgstr ""
 
+#: somali-focus/404.php:26
+msgid "Or try one of these popular pages:"
+msgstr ""
+
 #: somali-focus/template-parts/approach.php:25
 msgid "Our Approach"
 msgstr ""
 
-#: somali-focus/front-page.php:21
+#: somali-focus/front-page.php:24
 msgid "Our Core Services"
 msgstr ""
 
-#: somali-focus/front-page.php:169
-#: somali-focus/front-page.php:173
+#: somali-focus/template-parts/experts-section.php:21
+#: somali-focus/template-parts/experts-section.php:25
 msgid "Our Experts"
 msgstr ""
 
@@ -251,7 +266,7 @@ msgstr ""
 msgid "Our Mission"
 msgstr ""
 
-#: somali-focus/front-page.php:189
+#: somali-focus/template-parts/partners-section.php:21
 msgid "Our Partners"
 msgstr ""
 
@@ -259,7 +274,7 @@ msgstr ""
 msgid "Our Process"
 msgstr ""
 
-#: somali-focus/footer.php:93
+#: somali-focus/footer.php:96
 msgid "Our Services"
 msgstr ""
 
@@ -275,7 +290,7 @@ msgstr ""
 msgid "Page Not Found"
 msgstr ""
 
-#: somali-focus/front-page.php:193
+#: somali-focus/template-parts/partners-section.php:25
 msgid "Partners & Clients"
 msgstr ""
 
@@ -287,11 +302,20 @@ msgstr ""
 msgid "Play welcome video"
 msgstr ""
 
-#: somali-focus/header.php:40
+#: somali-focus/search.php:60
+msgid "Popular pages:"
+msgstr ""
+
+#: somali-focus/404.php:25
+#: somali-focus/search.php:59
+msgid "Popular pages"
+msgstr ""
+
+#: somali-focus/header.php:42
 msgid "Primary"
 msgstr ""
 
-#: somali-focus/single-sf_research.php:59
+#: somali-focus/single-sf_research.php:61
 msgid "Publication Details"
 msgstr ""
 
@@ -299,8 +323,8 @@ msgstr ""
 msgid "Publications"
 msgstr ""
 
-#: somali-focus/footer.php:61
-#: somali-focus/footer.php:62
+#: somali-focus/footer.php:64
+#: somali-focus/footer.php:65
 msgid "Quick Links"
 msgstr ""
 
@@ -329,7 +353,7 @@ msgstr ""
 msgid "Related Courses"
 msgstr ""
 
-#: somali-focus/single-sf_research.php:90
+#: somali-focus/single-sf_research.php:92
 msgid "Related Research"
 msgstr ""
 
@@ -337,7 +361,7 @@ msgstr ""
 msgid "Request Advisory Support"
 msgstr ""
 
-#: somali-focus/header.php:46
+#: somali-focus/header.php:48
 #: somali-focus/template-parts/mobile-nav.php:19
 msgid "Request a Service"
 msgstr ""
@@ -354,7 +378,7 @@ msgstr ""
 msgid "Research & Publications"
 msgstr ""
 
-#: somali-focus/front-page.php:119
+#: somali-focus/front-page.php:120
 msgid "Research Highlight"
 msgstr ""
 
@@ -366,7 +390,9 @@ msgstr ""
 msgid "Research Services"
 msgstr ""
 
-#: somali-focus/footer.php:97
+#: somali-focus/404.php:31
+#: somali-focus/footer.php:100
+#: somali-focus/search.php:65
 #: somali-focus/template-parts/hero.php:57
 msgid "Research"
 msgstr ""
@@ -435,8 +461,16 @@ msgstr ""
 msgid "Tell us what you need and our team will follow up with available options."
 msgstr ""
 
+#: somali-focus/template-parts/why-somali-focus.php:23
+msgid "The Difference"
+msgstr ""
+
 #: somali-focus/404.php:18
 msgid "The page you're looking for doesn't exist or may have moved."
+msgstr ""
+
+#: somali-focus/templates/page-about.php:31
+msgid "Three Ways We Help"
 msgstr ""
 
 #: somali-focus/template-parts/about.php:15
@@ -451,7 +485,7 @@ msgstr ""
 msgid "Training Formats"
 msgstr ""
 
-#: somali-focus/front-page.php:75
+#: somali-focus/front-page.php:76
 msgid "Training Highlight"
 msgstr ""
 
@@ -459,20 +493,22 @@ msgstr ""
 msgid "Training · Advisory · Research"
 msgstr ""
 
-#: somali-focus/footer.php:43
+#: somali-focus/footer.php:46
 msgid "Training, Advisory & Research"
 msgstr ""
 
-#: somali-focus/footer.php:95
+#: somali-focus/404.php:29
+#: somali-focus/footer.php:98
+#: somali-focus/search.php:63
 #: somali-focus/template-parts/hero.php:49
 msgid "Training"
 msgstr ""
 
-#: somali-focus/front-page.php:192
+#: somali-focus/template-parts/partners-section.php:24
 msgid "Trusted By"
 msgstr ""
 
-#: somali-focus/front-page.php:80
+#: somali-focus/front-page.php:81
 msgid "Upcoming & Featured Courses"
 msgstr ""
 
@@ -484,7 +520,7 @@ msgstr ""
 msgid "View All Courses"
 msgstr ""
 
-#: somali-focus/front-page.php:154
+#: somali-focus/front-page.php:157
 msgid "View All Insights"
 msgstr ""
 
@@ -496,7 +532,7 @@ msgstr ""
 msgid "View All Publications"
 msgstr ""
 
-#: somali-focus/front-page.php:82
+#: somali-focus/front-page.php:83
 msgid "View All Training"
 msgstr ""
 
@@ -504,7 +540,7 @@ msgstr ""
 msgid "View Course"
 msgstr ""
 
-#: somali-focus/single-sf_research.php:53
+#: somali-focus/single-sf_research.php:55
 msgid "View External Publication"
 msgstr ""
 
@@ -516,12 +552,17 @@ msgstr ""
 msgid "What Is Somali Focus?"
 msgstr ""
 
-#: somali-focus/front-page.php:212
+#: somali-focus/front-page.php:180
 msgid "What Our Clients Say"
 msgstr ""
 
-#: somali-focus/front-page.php:208
+#: somali-focus/front-page.php:176
 msgid "What People Say"
+msgstr ""
+
+#: somali-focus/templates/page-about.php:27
+#: somali-focus/templates/page-about.php:30
+msgid "What We Do"
 msgstr ""
 
 #: somali-focus/templates/page-training.php:29
@@ -536,13 +577,11 @@ msgstr ""
 msgid "Who We Work With"
 msgstr ""
 
+#: somali-focus/template-parts/why-somali-focus.php:24
+msgid "Why Somali Focus"
+msgstr ""
+
 #: somali-focus/templates/page-training.php:124
 msgid "Why Train With Somali Focus?"
 msgstr ""
-
-#: comments.php:16
-msgid "%s Comment"
-msgid_plural "%s Comments"
-msgstr[0] ""
-msgstr[1] ""
 

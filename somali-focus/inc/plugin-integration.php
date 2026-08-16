@@ -185,3 +185,17 @@ function sf_theme_service_request_form() {
 	}
 	echo '<p>' . esc_html__( 'This form is temporarily unavailable. Please email us directly.', 'somali-focus' ) . '</p>';
 }
+
+/**
+ * Render an optional ad slot. A silent no-op unless the plugin is active
+ * AND that specific slot is enabled with code configured — safe to call
+ * unconditionally from any template.
+ *
+ * @param string $slot_id One of: header_top, after_hero, before_content,
+ *                        in_content, after_content, sidebar, footer.
+ */
+function sf_ad_slot( $slot_id ) {
+	if ( function_exists( 'somali_focus_ad_slot' ) ) {
+		somali_focus_ad_slot( $slot_id );
+	}
+}

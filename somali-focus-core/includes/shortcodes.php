@@ -46,6 +46,28 @@ function somali_focus_form_status_notice( $context ) {
 }
 
 /**
+ * A short consent/privacy line for public-facing forms, linking to the
+ * site's Privacy Policy page when one is configured.
+ *
+ * @return string
+ */
+function somali_focus_privacy_consent_notice() {
+	$privacy_url = function_exists( 'get_privacy_policy_url' ) ? get_privacy_policy_url() : '';
+
+	if ( $privacy_url ) {
+		$text = sprintf(
+			/* translators: %s: Privacy Policy page URL */
+			__( 'By submitting this form, you agree to our <a href="%s" target="_blank" rel="noopener">Privacy Policy</a>.', 'somali-focus' ),
+			esc_url( $privacy_url )
+		);
+	} else {
+		$text = __( 'By submitting this form, you agree to be contacted about your request.', 'somali-focus' );
+	}
+
+	return '<p class="sf-field sf-field--consent">' . wp_kses_post( $text ) . '</p>';
+}
+
+/**
  * [sf_course_registration_form course_id="123"]
  *
  * @param array $atts Shortcode attributes.
@@ -73,6 +95,7 @@ function somali_focus_course_registration_form_shortcode( $atts ) {
 			<p class="sf-field"><label for="sf-reg-phone"><?php esc_html_e( 'Phone', 'somali-focus' ); ?></label><input type="tel" id="sf-reg-phone" name="phone"></p>
 			<p class="sf-field sf-field--wide"><label for="sf-reg-message"><?php esc_html_e( 'Message', 'somali-focus' ); ?></label><textarea id="sf-reg-message" name="message" rows="4"></textarea></p>
 
+			<?php echo somali_focus_privacy_consent_notice(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<p class="sf-field sf-field--submit"><button type="submit" class="sf-btn sf-btn--primary"><?php esc_html_e( 'Submit Registration', 'somali-focus' ); ?></button></p>
 		</form>
 	</div>
@@ -114,6 +137,7 @@ function somali_focus_service_request_form_shortcode() {
 			<p class="sf-field"><label for="sf-req-budget"><?php esc_html_e( 'Budget Range', 'somali-focus' ); ?></label><input type="text" id="sf-req-budget" name="budget_range"></p>
 			<p class="sf-field sf-field--wide"><label for="sf-req-message"><?php esc_html_e( 'Message', 'somali-focus' ); ?> *</label><textarea id="sf-req-message" name="message" rows="5" required></textarea></p>
 
+			<?php echo somali_focus_privacy_consent_notice(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<p class="sf-field sf-field--submit"><button type="submit" class="sf-btn sf-btn--primary"><?php esc_html_e( 'Send Request', 'somali-focus' ); ?></button></p>
 		</form>
 	</div>

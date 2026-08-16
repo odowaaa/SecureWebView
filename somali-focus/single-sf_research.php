@@ -34,7 +34,7 @@ while ( have_posts() ) :
 			<div class="container single-layout">
 				<div class="single-layout__main entry-content">
 					<?php if ( has_post_thumbnail() ) : ?>
-						<div class="single-course__image"><?php the_post_thumbnail( 'sf-hero', array( 'alt' => get_the_title() ) ); ?></div>
+						<div class="single-course__image"><?php the_post_thumbnail( 'sf-hero', array( 'decoding' => 'async', 'alt' => get_the_title() ) ); ?></div>
 					<?php endif; ?>
 
 					<?php
@@ -44,6 +44,8 @@ while ( have_posts() ) :
 						<h2><?php esc_html_e( 'Abstract', 'somali-focus' ); ?></h2>
 						<p><?php echo esc_html( $sf_abstract ); ?></p>
 					<?php endif; ?>
+
+					<?php sf_ad_slot( 'in_content' ); ?>
 
 					<?php the_content(); ?>
 

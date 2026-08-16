@@ -22,6 +22,17 @@ get_header();
 		<div style="max-width:480px;margin:2rem auto 0;">
 			<?php get_search_form(); ?>
 		</div>
+		<nav class="sf-404-links" aria-label="<?php esc_attr_e( 'Popular pages', 'somali-focus' ); ?>" style="margin-top:2.5rem;">
+			<p style="font-weight:600;color:var(--sf-navy);"><?php esc_html_e( 'Or try one of these popular pages:', 'somali-focus' ); ?></p>
+			<ul style="list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem 1.5rem;padding:0;margin:.75rem 0 0;">
+				<li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"><?php esc_html_e( 'About Us', 'somali-focus' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/training/' ) ); ?>"><?php esc_html_e( 'Training', 'somali-focus' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/advisory/' ) ); ?>"><?php esc_html_e( 'Advisory', 'somali-focus' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/research/' ) ); ?>"><?php esc_html_e( 'Research', 'somali-focus' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/insights/' ) ); ?>"><?php esc_html_e( 'Insights', 'somali-focus' ); ?></a></li>
+				<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'somali-focus' ); ?></a></li>
+			</ul>
+		</nav>
 	</div>
 </section>
 <?php

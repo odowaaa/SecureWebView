@@ -11,6 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
+$sf_result_count = $wp_query->found_posts;
 get_template_part(
 	'template-parts/page-hero',
 	null,
@@ -18,7 +19,8 @@ get_template_part(
 		'eyebrow'     => __( 'Search', 'somali-focus' ),
 		/* translators: %s: search query */
 		'title'       => sprintf( __( 'Search results for "%s"', 'somali-focus' ), get_search_query() ),
-		'description' => '',
+		/* translators: %s: number of results found */
+		'description' => sprintf( _n( '%s result found', '%s results found', $sf_result_count, 'somali-focus' ), number_format_i18n( $sf_result_count ) ),
 	)
 );
 ?>
@@ -50,8 +52,21 @@ get_template_part(
 			</div>
 			<div class="pagination-wrap"><?php the_posts_pagination(); ?></div>
 		<?php else : ?>
-			<p><?php esc_html_e( 'No results found. Try a different search term.', 'somali-focus' ); ?></p>
-			<?php get_search_form(); ?>
+			<p><?php esc_html_e( "No results found. Try a different search term, or check your spelling — the terms below can also help you find what you're looking for.", 'somali-focus' ); ?></p>
+			<div style="max-width:480px;margin:0 0 2rem;">
+				<?php get_search_form(); ?>
+			</div>
+			<nav class="sf-404-links" aria-label="<?php esc_attr_e( 'Popular pages', 'somali-focus' ); ?>">
+				<p style="font-weight:600;color:var(--sf-navy);"><?php esc_html_e( 'Popular pages:', 'somali-focus' ); ?></p>
+				<ul style="list-style:none;display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;padding:0;margin:.75rem 0 0;">
+					<li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"><?php esc_html_e( 'About Us', 'somali-focus' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/training/' ) ); ?>"><?php esc_html_e( 'Training', 'somali-focus' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/advisory/' ) ); ?>"><?php esc_html_e( 'Advisory', 'somali-focus' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/research/' ) ); ?>"><?php esc_html_e( 'Research', 'somali-focus' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/insights/' ) ); ?>"><?php esc_html_e( 'Insights', 'somali-focus' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact', 'somali-focus' ); ?></a></li>
+				</ul>
+			</nav>
 		<?php endif; ?>
 	</div>
 </section>

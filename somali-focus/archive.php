@@ -40,6 +40,7 @@ get_template_part(
 		</div>
 		<?php if ( is_active_sidebar( 'sf-blog-sidebar' ) ) : ?>
 			<aside class="blog-layout__sidebar">
+				<?php sf_ad_slot( 'sidebar' ); ?>
 				<?php dynamic_sidebar( 'sf-blog-sidebar' ); ?>
 			</aside>
 		<?php endif; ?>

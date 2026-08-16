@@ -22,10 +22,14 @@ while ( have_posts() ) :
 			</div>
 		</section>
 
+		<div class="container container--narrow">
+			<?php sf_ad_slot( 'before_content' ); ?>
+		</div>
+
 		<section class="page-content-section sf-reveal">
 			<div class="container container--narrow entry-content">
 				<?php if ( has_post_thumbnail() ) : ?>
-					<div class="single-post__image"><?php the_post_thumbnail( 'sf-hero', array( 'alt' => get_the_title() ) ); ?></div>
+					<div class="single-post__image"><?php the_post_thumbnail( 'sf-hero', array( 'decoding' => 'async', 'alt' => get_the_title() ) ); ?></div>
 				<?php endif; ?>
 				<?php the_content(); ?>
 				<?php
@@ -38,6 +42,10 @@ while ( have_posts() ) :
 				?>
 			</div>
 		</section>
+
+		<div class="container container--narrow">
+			<?php sf_ad_slot( 'after_content' ); ?>
+		</div>
 
 		<?php if ( comments_open() || get_comments_number() ) : ?>
 			<section class="page-content-section sf-reveal">

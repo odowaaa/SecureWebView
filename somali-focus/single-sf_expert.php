@@ -24,7 +24,7 @@ while ( have_posts() ) :
 			<div class="container expert-profile">
 				<div class="expert-profile__media">
 					<?php if ( has_post_thumbnail() ) : ?>
-						<?php the_post_thumbnail( 'sf-portrait', array( 'alt' => get_the_title() ) ); ?>
+						<?php the_post_thumbnail( 'sf-portrait', array( 'decoding' => 'async', 'alt' => get_the_title() ) ); ?>
 					<?php else : ?>
 						<span class="expert-card__initial expert-profile__initial"><?php echo esc_html( mb_substr( get_the_title(), 0, 1 ) ); ?></span>
 					<?php endif; ?>
