@@ -2,17 +2,21 @@
 # This file is distributed under the GPLv2 (or later) license.
 msgid ""
 msgstr ""
-"Project-Id-Version: Somali Focus Core 2.0.0\n"
+"Project-Id-Version: Somali Focus Core 2.1.0\n"
 "Report-Msgid-Bugs-To: https://somalifocus.org\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-08-16T09:09:13+00:00\n"
+"POT-Creation-Date: 2026-08-16T09:27:07+00:00\n"
 "X-Generator: somali-focus-pot-scanner\n"
 "Language: en\n"
 
 #: somali-focus-core/templates/single-sf_research.php:34
 msgid "Abstract"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:140
+msgid "Accepts a YouTube link, a Vimeo link, or a direct video file URL (.mp4/.webm). The poster image is shown before the visitor presses play, and used as a fallback if the URL cannot be embedded."
 msgstr ""
 
 #: somali-focus-core/templates/archive-sf_advisory.php:12
@@ -31,7 +35,7 @@ msgstr ""
 msgid "Budget Range"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:111
+#: somali-focus-core/admin/settings-page.php:165
 msgid "CTA Title"
 msgstr ""
 
@@ -98,20 +102,24 @@ msgstr ""
 msgid "Go to Settings"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:89
+#: somali-focus-core/admin/settings-page.php:143
 msgid "Homepage — About"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:108
+#: somali-focus-core/admin/settings-page.php:162
 msgid "Homepage — Final Call To Action"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:77
+#: somali-focus-core/admin/settings-page.php:119
 msgid "Homepage — Hero"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:98
+#: somali-focus-core/admin/settings-page.php:152
 msgid "Homepage — Impact Statistics"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:131
+msgid "Homepage — Welcome Video"
 msgstr ""
 
 #: somali-focus-core/admin/admin-menu.php:85
@@ -168,7 +176,7 @@ msgstr ""
 msgid "No research items are currently listed."
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:61
+#: somali-focus-core/admin/settings-page.php:103
 msgid "Office Hours"
 msgstr ""
 
@@ -176,11 +184,15 @@ msgstr ""
 msgid "Only PDF files are allowed for research reports."
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:52
+#: somali-focus-core/admin/settings-page.php:132
+msgid "Optional. Add a short (60 seconds or less works best) welcome video introducing Somali Focus. It appears right under the hero on the homepage. Leave the URL blank to hide this section."
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:94
 msgid "Organization Information"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:55
+#: somali-focus-core/admin/settings-page.php:97
 msgid "Organization Name"
 msgstr ""
 
@@ -197,7 +209,7 @@ msgstr ""
 msgid "Our Experts"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:58
+#: somali-focus-core/admin/settings-page.php:100
 #: somali-focus-core/includes/shortcodes.php:73
 #: somali-focus-core/includes/shortcodes.php:104
 msgid "Phone"
@@ -212,8 +224,12 @@ msgstr ""
 msgid "Position"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:82
-#: somali-focus-core/admin/settings-page.php:113
+#: somali-focus-core/admin/settings-page.php:136
+msgid "Poster / Thumbnail Image"
+msgstr ""
+
+#: somali-focus-core/admin/settings-page.php:124
+#: somali-focus-core/admin/settings-page.php:167
 msgid "Primary Button Text"
 msgstr ""
 
@@ -245,12 +261,12 @@ msgstr ""
 msgid "Research"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:120
+#: somali-focus-core/admin/settings-page.php:174
 msgid "Save Settings"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:84
-#: somali-focus-core/admin/settings-page.php:115
+#: somali-focus-core/admin/settings-page.php:126
+#: somali-focus-core/admin/settings-page.php:169
 msgid "Secondary Button Text"
 msgstr ""
 
@@ -270,11 +286,11 @@ msgstr ""
 msgid "Site structure check complete — any missing pages or the primary menu have been created."
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:66
+#: somali-focus-core/admin/settings-page.php:108
 msgid "Social Media"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:46
+#: somali-focus-core/admin/settings-page.php:88
 msgid "Somali Focus Settings"
 msgstr ""
 
@@ -302,7 +318,7 @@ msgstr ""
 msgid "Submit Registration"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:56
+#: somali-focus-core/admin/settings-page.php:98
 msgid "Tagline"
 msgstr ""
 
@@ -314,7 +330,7 @@ msgstr ""
 msgid "The PDF must be smaller than 20MB."
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:47
+#: somali-focus-core/admin/settings-page.php:89
 msgid "These values power the organization info, homepage copy and statistics used across the site. No code editing required."
 msgstr ""
 
@@ -343,7 +359,7 @@ msgstr ""
 msgid "View Publication"
 msgstr ""
 
-#: somali-focus-core/admin/settings-page.php:73
+#: somali-focus-core/admin/settings-page.php:115
 msgid "WhatsApp Number"
 msgstr ""
 

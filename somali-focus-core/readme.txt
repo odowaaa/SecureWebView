@@ -4,7 +4,7 @@ Tags: custom-post-type, training, consulting, research
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,6 +72,12 @@ to the address configured in Settings (falls back to the site admin
 email).
 
 == Changelog ==
+
+= 2.1.0 =
+* New: homepage welcome video setting (Somali Focus → Settings →
+  Homepage — Welcome Video). Accepts a YouTube link, a Vimeo link, or a
+  direct video file URL, plus an optional poster/thumbnail image. Leave
+  it blank and the homepage section stays hidden.
 
 = 2.0.0 =
 * **Breaking (pre-launch) URL change:** Course/Advisory/Research archive

@@ -286,6 +286,67 @@ p:last-child { margin-bottom: 0; }
 .hero-panel__card--3 .sf-icon { color: var(--sf-blue); }
 
 /* ==========================================================================
+   Welcome video
+   ========================================================================== */
+
+.video-section { padding: 1rem 0 5rem; }
+.video-facade {
+	position: relative;
+	aspect-ratio: 16 / 9;
+	border-radius: var(--sf-radius-lg);
+	overflow: hidden;
+	background-size: cover;
+	background-position: center;
+	background-color: var(--sf-navy);
+	cursor: pointer;
+	box-shadow: var(--sf-shadow-lg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.video-facade--no-poster {
+	background-image: linear-gradient(135deg, var(--sf-blue) 0%, var(--sf-navy) 100%);
+}
+.video-facade::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: rgba(10, 31, 51, 0.25);
+	transition: background var(--sf-transition);
+}
+.video-facade:hover::after { background: rgba(10, 31, 51, 0.35); }
+.video-facade__play {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 84px;
+	height: 84px;
+	border-radius: 50%;
+	background: var(--sf-white);
+	color: var(--sf-red);
+	box-shadow: var(--sf-shadow-md);
+	transition: transform var(--sf-transition);
+}
+.video-facade__play svg { width: 30px; height: 30px; margin-left: 4px; }
+.video-facade:hover .video-facade__play,
+.video-facade:focus-visible .video-facade__play { transform: scale(1.08); }
+.video-facade.is-playing {
+	cursor: default;
+	background-image: none;
+}
+.video-facade.is-playing::after { display: none; }
+.video-facade.is-playing iframe,
+.video-facade.is-playing video {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+
+/* ==========================================================================
    Core service cards
    ========================================================================== */
 

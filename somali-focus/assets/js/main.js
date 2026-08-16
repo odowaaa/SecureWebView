@@ -155,4 +155,23 @@
 			select.value = value;
 		}
 	} );
+
+	/* Welcome-video facade: no video-platform iframe/JS loads until the
+	   visitor actually presses play. */
+	document.querySelectorAll( '[data-sf-video-facade]' ).forEach( function ( facade ) {
+		var play = function () {
+			facade.innerHTML = facade.getAttribute( 'data-embed' );
+			facade.classList.add( 'is-playing' );
+			facade.removeAttribute( 'role' );
+			facade.removeAttribute( 'tabindex' );
+			facade.removeAttribute( 'aria-label' );
+		};
+		facade.addEventListener( 'click', play );
+		facade.addEventListener( 'keydown', function ( e ) {
+			if ( 'Enter' === e.key || ' ' === e.key ) {
+				e.preventDefault();
+				play();
+			}
+		} );
+	} );
 } )();

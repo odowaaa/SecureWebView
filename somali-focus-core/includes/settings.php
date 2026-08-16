@@ -42,6 +42,10 @@ function somali_focus_default_settings() {
 		'hero_button_secondary_text'  => __( 'Start a Conversation', 'somali-focus' ),
 		'hero_button_secondary_url'   => '',
 
+		// Homepage — welcome video.
+		'welcome_video_url'           => '',
+		'welcome_video_poster_id'     => '',
+
 		// Homepage — about.
 		'about_text'                  => __( 'Somali Focus is a professional Training, Advisory and Research organization committed to strengthening people, organizations and decision-making through practical knowledge, professional expertise and evidence.', 'somali-focus' ),
 		'mission_text'                => __( 'To strengthen people and organizations through quality training, practical advisory services and credible research.', 'somali-focus' ),
@@ -77,9 +81,10 @@ function somali_focus_default_settings() {
  */
 function somali_focus_settings_schema() {
 	$textarea_fields = array( 'hero_description', 'about_text', 'mission_text', 'vision_text', 'cta_description', 'address' );
-	$url_fields      = array( 'website', 'social_facebook', 'social_linkedin', 'social_twitter', 'social_youtube', 'hero_button_primary_url', 'hero_button_secondary_url', 'cta_button_primary_url', 'cta_button_secondary_url' );
+	$url_fields      = array( 'website', 'social_facebook', 'social_linkedin', 'social_twitter', 'social_youtube', 'hero_button_primary_url', 'hero_button_secondary_url', 'cta_button_primary_url', 'cta_button_secondary_url', 'welcome_video_url' );
 	$email_fields    = array( 'email', 'notification_email' );
 	$phone_fields    = array( 'phone', 'social_whatsapp' );
+	$int_fields      = array( 'welcome_video_poster_id' );
 
 	$schema = array();
 	foreach ( array_keys( somali_focus_default_settings() ) as $key ) {
@@ -91,6 +96,8 @@ function somali_focus_settings_schema() {
 			$schema[ $key ] = 'email';
 		} elseif ( in_array( $key, $phone_fields, true ) ) {
 			$schema[ $key ] = 'phone';
+		} elseif ( in_array( $key, $int_fields, true ) ) {
+			$schema[ $key ] = 'int';
 		} else {
 			$schema[ $key ] = 'text';
 		}
@@ -124,6 +131,9 @@ function somali_focus_sanitize_settings( $input ) {
 				break;
 			case 'phone':
 				$clean[ $key ] = somali_focus_sanitize_phone( $raw );
+				break;
+			case 'int':
+				$clean[ $key ] = $raw ? absint( $raw ) : '';
 				break;
 			default:
 				$clean[ $key ] = sanitize_text_field( $raw );

@@ -1,8 +1,9 @@
 <?php
 /**
- * The homepage: hero → three core services → about → stats → training,
- * advisory & research highlights → approach → sectors → experts →
- * partners → testimonials (if any) → final CTA.
+ * The homepage: hero → welcome video (if configured) → three core
+ * services → about → stats → training, advisory & research highlights
+ * → approach → sectors → experts → partners → testimonials (if any) →
+ * final CTA.
  *
  * @package SomaliFocus
  */
@@ -14,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 get_template_part( 'template-parts/hero' );
+get_template_part( 'template-parts/welcome-video' );
 ?>
 
 <section class="core-services sf-reveal" aria-label="<?php esc_attr_e( 'Our Core Services', 'somali-focus' ); ?>">

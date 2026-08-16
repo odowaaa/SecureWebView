@@ -130,6 +130,47 @@ function sf_trim_words( $text, $words = 20 ) {
 }
 
 /**
+ * Turn an admin-supplied YouTube / Vimeo / direct-file video URL into a
+ * safe, ready-to-inject embed. Returns false for anything unrecognized
+ * so the calling template can render nothing rather than a broken embed.
+ *
+ * @param string $url Raw video URL from settings.
+ * @return array{type:string,html:string}|false
+ */
+function sf_video_embed_src( $url ) {
+	$url = trim( (string) $url );
+	if ( ! $url ) {
+		return false;
+	}
+
+	if ( preg_match( '#(?:youtube\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([a-zA-Z0-9_-]{6,})#i', $url, $m ) ) {
+		$src = 'https://www.youtube-nocookie.com/embed/' . rawurlencode( $m[1] ) . '?autoplay=1&rel=0';
+		return array(
+			'type' => 'youtube',
+			'html' => '<iframe src="' . esc_url( $src ) . '" title="' . esc_attr__( 'Somali Focus welcome video', 'somali-focus' ) . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+		);
+	}
+
+	if ( preg_match( '#vimeo\.com/(?:video/)?(\d+)#i', $url, $m ) ) {
+		$src = 'https://player.vimeo.com/video/' . rawurlencode( $m[1] ) . '?autoplay=1';
+		return array(
+			'type' => 'vimeo',
+			'html' => '<iframe src="' . esc_url( $src ) . '" title="' . esc_attr__( 'Somali Focus welcome video', 'somali-focus' ) . '" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>',
+		);
+	}
+
+	$ext = strtolower( pathinfo( wp_parse_url( $url, PHP_URL_PATH ), PATHINFO_EXTENSION ) );
+	if ( in_array( $ext, array( 'mp4', 'webm', 'ogg', 'ogv' ), true ) ) {
+		return array(
+			'type' => 'file',
+			'html' => '<video controls autoplay playsinline src="' . esc_url( $url ) . '"></video>',
+		);
+	}
+
+	return false;
+}
+
+/**
  * Resolve the header CTA button's destination: the Customizer URL if set,
  * otherwise the Contact page, otherwise the homepage.
  *

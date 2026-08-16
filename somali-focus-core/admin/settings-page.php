@@ -33,6 +33,48 @@ function somali_focus_settings_field( $settings, $key, $label, $type = 'text' ) 
 }
 
 /**
+ * Print a media-library image picker bound to the settings array,
+ * mirroring the Research PDF picker's button-based pattern.
+ *
+ * @param array  $settings Current settings values.
+ * @param string $key      Settings key (stores an attachment ID).
+ * @param string $label    Field label.
+ */
+function somali_focus_settings_image_field( $settings, $key, $label ) {
+	$attachment_id = isset( $settings[ $key ] ) ? absint( $settings[ $key ] ) : 0;
+	$id            = 'sfset_' . $key;
+	$name          = 'somali_focus_settings[' . $key . ']';
+	$thumb_url     = $attachment_id ? wp_get_attachment_image_url( $attachment_id, 'medium' ) : '';
+
+	echo '<tr><th scope="row"><label for="' . esc_attr( $id ) . '">' . esc_html( $label ) . '</label></th><td>';
+	echo '<input type="hidden" class="somali-focus-image-id" id="' . esc_attr( $id ) . '" name="' . esc_attr( $name ) . '" value="' . esc_attr( $attachment_id ) . '">';
+	echo '<div class="somali-focus-image-preview" style="margin-bottom:8px;' . ( $thumb_url ? '' : 'display:none;' ) . '">';
+	echo '<img src="' . esc_url( $thumb_url ) . '" style="max-width:240px;height:auto;display:block;border:1px solid #ccd0d4;border-radius:4px;">';
+	echo '</div>';
+	echo '<button type="button" class="button somali-focus-image-select">' . esc_html__( 'Select Image', 'somali-focus' ) . '</button> ';
+	echo '<button type="button" class="button somali-focus-image-clear"' . ( $attachment_id ? '' : ' style="display:none"' ) . '>' . esc_html__( 'Remove', 'somali-focus' ) . '</button>';
+	echo '</td></tr>';
+}
+
+/**
+ * Enqueue the media picker script on the settings page only.
+ */
+function somali_focus_settings_assets() {
+	if ( ! isset( $_GET['page'] ) || 'somali-focus-settings' !== $_GET['page'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		return;
+	}
+	wp_enqueue_media();
+	wp_enqueue_script(
+		'somali-focus-admin-image-picker',
+		SOMALI_FOCUS_CORE_URL . 'admin/assets/js/image-picker.js',
+		array( 'jquery' ),
+		SOMALI_FOCUS_CORE_VERSION,
+		true
+	);
+}
+add_action( 'admin_enqueue_scripts', 'somali_focus_settings_assets' );
+
+/**
  * Render the settings page.
  */
 function somali_focus_render_settings_page() {
@@ -85,6 +127,18 @@ function somali_focus_render_settings_page() {
 				somali_focus_settings_field( $settings, 'hero_button_secondary_url', __( 'Secondary Button URL', 'somali-focus' ), 'url' );
 				?>
 			</table>
+
+			<h2 class="title"><?php esc_html_e( 'Homepage — Welcome Video', 'somali-focus' ); ?></h2>
+			<p><?php esc_html_e( 'Optional. Add a short (60 seconds or less works best) welcome video introducing Somali Focus. It appears right under the hero on the homepage. Leave the URL blank to hide this section.', 'somali-focus' ); ?></p>
+			<table class="form-table" role="presentation">
+				<?php
+				somali_focus_settings_field( $settings, 'welcome_video_url', __( 'Video URL', 'somali-focus' ), 'url' );
+				somali_focus_settings_image_field( $settings, 'welcome_video_poster_id', __( 'Poster / Thumbnail Image', 'somali-focus' ) );
+				?>
+			</table>
+			<p class="description" style="margin:-8px 0 24px;">
+				<?php esc_html_e( 'Accepts a YouTube link, a Vimeo link, or a direct video file URL (.mp4/.webm). The poster image is shown before the visitor presses play, and used as a fallback if the URL cannot be embedded.', 'somali-focus' ); ?>
+			</p>
 
 			<h2 class="title"><?php esc_html_e( 'Homepage — About', 'somali-focus' ); ?></h2>
 			<table class="form-table" role="presentation">

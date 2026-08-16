@@ -3,7 +3,7 @@
  * Plugin Name:       Somali Focus Core
  * Plugin URI:        https://somalifocus.org
  * Description:       Core business logic and data structures for the Somali Focus website — Courses, Advisory Projects, Research, Experts, Partners, Testimonials, registrations, service requests and site settings. Required by the Somali Focus theme; works independently of it.
- * Version:           2.0.0
+ * Version:           2.1.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Somali Focus
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SOMALI_FOCUS_CORE_VERSION', '2.0.0' );
+define( 'SOMALI_FOCUS_CORE_VERSION', '2.1.0' );
 define( 'SOMALI_FOCUS_CORE_FILE', __FILE__ );
 define( 'SOMALI_FOCUS_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SOMALI_FOCUS_CORE_URL', plugin_dir_url( __FILE__ ) );

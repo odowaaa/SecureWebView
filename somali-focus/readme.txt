@@ -4,7 +4,7 @@ Tags: custom-menu, custom-logo, featured-images, threaded-comments, translation-
 Requires at least: 6.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,14 @@ The theme is a classic (non-block) theme with full Gutenberg content
 editing support. It does not depend on Elementor, Divi or WPBakery.
 
 == Changelog ==
+
+= 2.1.0 =
+* New: homepage welcome-video section, right under the hero. Renders
+  only once a video URL is set in Somali Focus → Settings — a
+  click-to-play facade (poster image + play button) so no video-platform
+  script or iframe loads until the visitor actually presses play.
+  Supports YouTube, Vimeo, and direct video files.
+* Requires **Somali Focus Core 2.1.0** or later.
 
 = 2.0.0 =
 * Fonts are now self-hosted (Plus Jakarta Sans + Merriweather,
