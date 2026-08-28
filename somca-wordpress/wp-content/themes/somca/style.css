@@ -1,0 +1,296 @@
+/*
+Theme Name: SomCA
+Theme URI: https://somca.org
+Author: Somali Climate Action
+Author URI: https://somca.org
+Description: Official theme for Somali Climate Action (SomCA) — a climate hotspot monitoring, early-warning, and advocacy platform for Somalia and worldwide. Built to pair with the SomCA Core plugin for automated weekly/monthly/seasonal/yearly climate data, interactive hotspot maps, and alerts.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 7.4
+Tested up to: 6.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: somca
+Tags: one-column, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, news, nonprofit
+*/
+
+/* =========================================================
+   0. Brand tokens
+   ========================================================= */
+:root {
+	--somca-black: #1a1a1a;
+	--somca-black-soft: #2b2b2b;
+	--somca-green: #4CAF50;
+	--somca-green-dark: #357a38;
+	--somca-green-light: #e6f4e6;
+	--somca-red: #D32F2F;
+	--somca-red-dark: #a92424;
+	--somca-red-light: #fdecea;
+	--somca-yellow: #F2B705;
+	--somca-orange: #E9622B;
+	--somca-bg: #f7f8f6;
+	--somca-surface: #ffffff;
+	--somca-border: #e3e6e1;
+	--somca-text: #232622;
+	--somca-text-muted: #62675e;
+	--font-heading: 'Poppins', 'Segoe UI', sans-serif;
+	--font-body: 'Inter', 'Segoe UI', sans-serif;
+	--radius-md: 12px;
+	--radius-lg: 20px;
+	--shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+	--shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* =========================================================
+   1. Reset & base
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+	margin: 0;
+	font-family: var(--font-body);
+	color: var(--somca-text);
+	background: var(--somca-bg);
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--somca-green-dark); text-decoration: none; }
+a:hover { color: var(--somca-red); }
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); color: var(--somca-black); line-height: 1.25; margin: 0 0 0.5em; }
+h1 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 700; }
+h3 { font-size: 1.25rem; font-weight: 700; }
+p { margin: 0 0 1em; }
+ul { margin: 0; padding: 0; list-style: none; }
+button, input, textarea, select { font-family: inherit; }
+
+.somca-container { max-width: 1180px; margin: 0 auto; padding: 0 1.5rem; }
+.screen-reader-text { position: absolute !important; clip: rect(1px,1px,1px,1px); overflow: hidden; height: 1px; width: 1px; }
+.skip-link:focus { position: fixed; top: 10px; left: 10px; background: var(--somca-black); color: #fff; padding: 10px 16px; z-index: 9999; border-radius: 6px; }
+
+/* =========================================================
+   2. Buttons & badges
+   ========================================================= */
+.somca-btn {
+	display: inline-flex; align-items: center; justify-content: center; gap: 0.5em;
+	padding: 0.7em 1.4em; border-radius: 999px; font-weight: 700; font-size: 0.95rem;
+	border: 2px solid transparent; cursor: pointer; transition: all .18s ease;
+}
+.somca-btn-primary { background: var(--somca-green); color: #fff; }
+.somca-btn-primary:hover { background: var(--somca-green-dark); color: #fff; }
+.somca-btn-secondary { background: var(--somca-black); color: #fff; }
+.somca-btn-secondary:hover { background: var(--somca-red); color: #fff; }
+.somca-btn-outline { background: transparent; border-color: currentColor; color: var(--somca-black); }
+.somca-btn-outline:hover { border-color: var(--somca-red); color: var(--somca-red); }
+
+.somca-risk-badge, .somca-alert-badge, .somca-status-badge {
+	display: inline-block; padding: 0.25em 0.75em; border-radius: 999px;
+	font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #fff;
+}
+.somca-risk-badge.somca-risk-low { background: var(--somca-green); }
+.somca-risk-badge.somca-risk-moderate { background: var(--somca-yellow); color: var(--somca-black); }
+.somca-risk-badge.somca-risk-high { background: var(--somca-orange); }
+.somca-risk-badge.somca-risk-critical { background: var(--somca-red); }
+
+.somca-alert-badge.somca-severity-advisory { background: var(--somca-green); }
+.somca-alert-badge.somca-severity-watch { background: var(--somca-yellow); color: var(--somca-black); }
+.somca-alert-badge.somca-severity-warning { background: var(--somca-orange); }
+.somca-alert-badge.somca-severity-emergency { background: var(--somca-red); }
+
+/* =========================================================
+   3. Top alert bar
+   ========================================================= */
+.somca-topbar { background: var(--somca-black); color: #fff; font-size: 0.85rem; }
+.somca-topbar-inner { display: flex; align-items: center; gap: 1em; padding: 0.55em 1.5rem; flex-wrap: wrap; }
+.somca-topbar-label { font-weight: 700; color: var(--somca-yellow); flex-shrink: 0; }
+.somca-topbar-alerts { display: flex; gap: 1.25em; flex-wrap: wrap; flex: 1; }
+.somca-topbar-alert { color: #fff; border-bottom: 2px solid transparent; }
+.somca-topbar-alert.somca-severity-emergency { color: #ff8a80; }
+.somca-topbar-alert.somca-severity-warning { color: #ffc38a; }
+.somca-topbar-alert:hover { border-color: currentColor; }
+.somca-topbar-all { color: var(--somca-green); font-weight: 600; white-space: nowrap; }
+
+/* =========================================================
+   4. Header
+   ========================================================= */
+.somca-header { background: var(--somca-surface); border-bottom: 1px solid var(--somca-border); position: sticky; top: 0; z-index: 50; }
+.somca-header-inner { display: flex; align-items: center; justify-content: space-between; padding: 0.8rem 1.5rem; gap: 1.5rem; }
+.somca-logo-link { display: flex; align-items: center; gap: 0.7em; }
+.somca-logo-img, .somca-footer-logo { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; }
+.somca-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+.somca-logo-title { font-family: var(--font-heading); font-weight: 800; font-size: 1.35rem; }
+.somca-black { color: var(--somca-black); }
+.somca-red { color: var(--somca-red); }
+.somca-logo-sub { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; color: var(--somca-red); text-transform: uppercase; }
+
+.somca-nav { flex: 1; display: flex; justify-content: center; }
+.somca-nav-menu { display: flex; gap: 1.8em; }
+.somca-nav-menu li { position: relative; }
+.somca-nav-menu a { color: var(--somca-black); font-weight: 600; padding: 0.5em 0; }
+.somca-nav-menu a:hover { color: var(--somca-green-dark); }
+.somca-nav-menu .sub-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; box-shadow: var(--shadow-md); border-radius: 10px; padding: 0.5em; min-width: 200px; }
+.somca-nav-menu li:hover > .sub-menu { display: block; }
+.somca-nav-menu .sub-menu a { display: block; padding: 0.5em 0.75em; }
+
+.somca-header-actions { display: flex; align-items: center; gap: 1em; }
+.somca-menu-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; padding: 6px; }
+.somca-menu-toggle span { width: 22px; height: 2px; background: var(--somca-black); display: block; }
+
+/* =========================================================
+   5. Hero
+   ========================================================= */
+.somca-hero {
+	background: linear-gradient(135deg, var(--somca-black) 0%, #2c2c2c 60%, var(--somca-green-dark) 130%);
+	color: #fff; padding: 5rem 0 6rem; position: relative; overflow: hidden;
+}
+.somca-hero::after {
+	content: ""; position: absolute; inset: 0;
+	background: radial-gradient(circle at 80% 20%, rgba(76,175,80,0.35), transparent 55%),
+	            radial-gradient(circle at 10% 90%, rgba(211,47,47,0.25), transparent 45%);
+	pointer-events: none;
+}
+.somca-hero-inner { position: relative; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
+.somca-hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5em; background: rgba(255,255,255,0.12); padding: 0.4em 1em; border-radius: 999px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--somca-yellow); margin-bottom: 1.2em; }
+.somca-hero h1 { color: #fff; margin-bottom: 0.5em; }
+.somca-hero h1 .somca-accent { color: var(--somca-green); }
+.somca-hero p.lead { font-size: 1.15rem; color: #dcded9; max-width: 46ch; margin-bottom: 1.8em; }
+.somca-hero-actions { display: flex; gap: 1em; flex-wrap: wrap; }
+.somca-hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em; margin-top: 2.5em; }
+.somca-hero-stat { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-md); padding: 1em; }
+.somca-hero-stat strong { display: block; font-size: 1.6rem; font-family: var(--font-heading); color: var(--somca-green); }
+.somca-hero-stat span { font-size: 0.78rem; color: #cfd2c9; }
+.somca-hero-visual { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-lg); padding: 1.2rem; backdrop-filter: blur(4px); }
+.somca-hero-visual img { border-radius: var(--radius-md); }
+
+/* =========================================================
+   6. Sections & cards
+   ========================================================= */
+.somca-section { padding: 4.5rem 0; }
+.somca-section-alt { background: var(--somca-surface); }
+.somca-section-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5em; margin-bottom: 2rem; flex-wrap: wrap; }
+.somca-section-header .somca-eyebrow { color: var(--somca-green-dark); font-weight: 700; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.06em; margin-bottom: 0.4em; display: block; }
+.somca-section-header p { color: var(--somca-text-muted); max-width: 60ch; margin: 0.4em 0 0; }
+
+.somca-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.6em; }
+.somca-card {
+	background: var(--somca-surface); border: 1px solid var(--somca-border); border-radius: var(--radius-md);
+	overflow: hidden; display: flex; flex-direction: column; transition: box-shadow .2s ease, transform .2s ease;
+}
+.somca-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.somca-card-thumb img { width: 100%; height: 170px; object-fit: cover; }
+.somca-card-body { padding: 1.2em 1.3em 1.4em; display: flex; flex-direction: column; gap: 0.5em; flex: 1; }
+.somca-card-meta { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--somca-green-dark); font-weight: 700; }
+.somca-card-title a { color: var(--somca-black); }
+.somca-card-stats { display: flex; gap: 1em; font-weight: 700; margin-top: auto; padding-top: 0.6em; }
+
+/* =========================================================
+   7. Map & Alerts
+   ========================================================= */
+.somca-map-section .somca-hotspot-map, .somca-hotspot-map { width: 100%; height: 480px; border-radius: var(--radius-lg); border: 1px solid var(--somca-border); }
+.somca-map-legend { display: flex; flex-wrap: wrap; gap: 1.2em; margin-top: 1em; font-size: 0.85rem; }
+.somca-legend-item { display: inline-flex; align-items: center; gap: 0.4em; }
+.somca-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.somca-dot.somca-risk-low { background: var(--somca-green); }
+.somca-dot.somca-risk-moderate { background: var(--somca-yellow); }
+.somca-dot.somca-risk-high { background: var(--somca-orange); }
+.somca-dot.somca-risk-critical { background: var(--somca-red); }
+.somca-map-popup { max-width: 220px; font-size: 0.85rem; }
+.somca-map-popup img { width: 100%; border-radius: 6px; margin-bottom: 0.4em; }
+
+.somca-alerts-banner { display: flex; flex-direction: column; gap: 0.6em; }
+.somca-alert {
+	display: flex; align-items: center; gap: 0.9em; padding: 0.9em 1.1em; border-radius: 12px;
+	background: var(--somca-surface); border-left: 5px solid var(--somca-yellow); box-shadow: var(--shadow-sm);
+	transition: transform .15s ease;
+}
+.somca-alert:hover { transform: translateX(3px); }
+.somca-alert.somca-severity-advisory { border-left-color: var(--somca-green); }
+.somca-alert.somca-severity-watch { border-left-color: var(--somca-yellow); }
+.somca-alert.somca-severity-warning { border-left-color: var(--somca-orange); }
+.somca-alert.somca-severity-emergency { border-left-color: var(--somca-red); background: var(--somca-red-light); }
+.somca-alert-title { font-weight: 600; color: var(--somca-black); }
+
+/* =========================================================
+   8. Chart & metric tiles
+   ========================================================= */
+.somca-chart-wrap { position: relative; height: 360px; background: var(--somca-surface); border: 1px solid var(--somca-border); border-radius: var(--radius-md); padding: 1.2em; }
+.somca-chart { width: 100% !important; height: 100% !important; }
+.somca-metrics-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1em; margin: 1.5em 0; }
+.somca-metric-tile { background: var(--somca-surface); border: 1px solid var(--somca-border); border-radius: var(--radius-md); padding: 1.1em; text-align: center; }
+.somca-metric-value { display: block; font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: var(--somca-green-dark); }
+.somca-metric-label { font-size: 0.78rem; color: var(--somca-text-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+
+/* =========================================================
+   9. Period tabs (weekly/monthly/seasonal/yearly/biyearly)
+   ========================================================= */
+.somca-period-tabs { display: flex; flex-wrap: wrap; gap: 0.5em; margin-bottom: 1.5em; }
+.somca-period-tabs a { padding: 0.5em 1.1em; border-radius: 999px; border: 1px solid var(--somca-border); font-weight: 600; font-size: 0.85rem; color: var(--somca-text); }
+.somca-period-tabs a.is-active, .somca-period-tabs a:hover { background: var(--somca-green); border-color: var(--somca-green); color: #fff; }
+
+/* =========================================================
+   10. Content: single/page/archive
+   ========================================================= */
+.somca-breadcrumb { font-size: 0.82rem; color: var(--somca-text-muted); margin-bottom: 1.2em; }
+.somca-breadcrumb a { color: var(--somca-text-muted); }
+.somca-breadcrumb .sep { margin: 0 0.5em; }
+.somca-breadcrumb .current { color: var(--somca-black); font-weight: 600; }
+
+.somca-entry-header { margin-bottom: 1.5em; }
+.somca-entry-content { max-width: 76ch; }
+.somca-entry-content img { border-radius: var(--radius-md); }
+.somca-entry-content ul, .somca-entry-content ol { list-style: disc; margin: 1em 0 1em 1.4em; }
+.somca-entry-content ol { list-style: decimal; }
+.somca-entry-content a { text-decoration: underline; }
+
+.somca-layout { display: grid; grid-template-columns: 2.2fr 1fr; gap: 3rem; align-items: start; }
+.somca-widget { margin-bottom: 2em; background: var(--somca-surface); border: 1px solid var(--somca-border); border-radius: var(--radius-md); padding: 1.3em; }
+.somca-widget-title { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.8em; }
+.somca-widget ul li { padding: 0.4em 0; border-bottom: 1px dashed var(--somca-border); }
+.somca-widget ul li:last-child { border-bottom: none; }
+
+.somca-pagination { display: flex; gap: 0.5em; margin-top: 2.5em; flex-wrap: wrap; }
+.somca-pagination a, .somca-pagination span { padding: 0.5em 0.9em; border-radius: 8px; border: 1px solid var(--somca-border); }
+.somca-pagination .current { background: var(--somca-black); color: #fff; border-color: var(--somca-black); }
+
+/* =========================================================
+   11. Footer
+   ========================================================= */
+.somca-footer { background: var(--somca-black); color: #d8dad4; margin-top: 4rem; }
+.somca-footer-cta { background: var(--somca-green-dark); color: #fff; }
+.somca-footer-cta-inner { display: flex; justify-content: space-between; align-items: center; gap: 2em; padding: 2.5rem 1.5rem; flex-wrap: wrap; }
+.somca-footer-cta-inner h3 { color: #fff; margin-bottom: 0.2em; }
+.somca-footer-cta-inner p { color: #dff0df; margin: 0; }
+.somca-subscribe-form { display: flex; gap: 0.6em; }
+.somca-subscribe-form input { padding: 0.7em 1em; border-radius: 999px; border: none; min-width: 240px; }
+
+.somca-footer-columns { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 2.5rem; padding: 3.5rem 1.5rem 2.5rem; }
+.somca-footer-brand p { color: #b7bab1; font-size: 0.9rem; }
+.somca-footer-title { color: #fff; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1em; }
+.somca-footer-col ul li, .somca-footer-menu li { margin-bottom: 0.6em; }
+.somca-footer-col a, .somca-footer-menu a { color: #b7bab1; }
+.somca-footer-col a:hover, .somca-footer-menu a:hover { color: var(--somca-green); }
+
+.somca-footer-bottom { display: flex; justify-content: space-between; padding: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; color: #8b8e85; flex-wrap: wrap; gap: 0.5em; }
+
+/* =========================================================
+   12. Responsive
+   ========================================================= */
+@media (max-width: 960px) {
+	.somca-hero-inner { grid-template-columns: 1fr; }
+	.somca-layout { grid-template-columns: 1fr; }
+	.somca-footer-columns { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 782px) {
+	.somca-nav { position: fixed; top: 0; right: -100%; width: 78%; max-width: 320px; height: 100vh; background: #fff; flex-direction: column; padding: 5rem 1.5rem 2rem; transition: right .25s ease; box-shadow: -8px 0 24px rgba(0,0,0,0.15); }
+	.somca-nav.is-open { right: 0; }
+	.somca-nav-menu { flex-direction: column; gap: 1em; }
+	.somca-menu-toggle { display: flex; }
+	.somca-hero { padding: 3.5rem 0 4rem; }
+	.somca-hero-stats { grid-template-columns: 1fr; }
+	.somca-footer-columns { grid-template-columns: 1fr; }
+	.somca-footer-cta-inner { flex-direction: column; align-items: flex-start; }
+	.somca-subscribe-form { width: 100%; }
+	.somca-subscribe-form input { flex: 1; min-width: 0; }
+}
