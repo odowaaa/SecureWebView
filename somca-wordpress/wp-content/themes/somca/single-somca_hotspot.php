@@ -59,7 +59,10 @@ while ( have_posts() ) :
 					<?php the_content(); ?>
 				</div>
 
-				<h2><?php esc_html_e( 'Recent Climate Reports', 'somca' ); ?></h2>
+				<div class="somca-section-header" style="margin-bottom:0.5em;">
+					<h2 style="margin:0;"><?php esc_html_e( 'Recent Climate Reports', 'somca' ); ?></h2>
+					<a class="somca-btn somca-btn-outline" href="<?php echo esc_url( admin_url( 'admin-post.php?action=somca_export_reports&hotspot_id=' . $id ) ); ?>"><?php esc_html_e( 'Export Data (CSV)', 'somca' ); ?></a>
+				</div>
 				<?php echo do_shortcode( '[somca_chart hotspot="' . absint( $id ) . '" period="weekly"]' ); ?>
 				<?php
 				$reports = get_posts( array(

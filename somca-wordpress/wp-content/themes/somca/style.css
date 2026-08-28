@@ -4,7 +4,7 @@ Theme URI: https://somca.org
 Author: Somali Climate Action
 Author URI: https://somca.org
 Description: Official theme for Somali Climate Action (SomCA) — a climate hotspot monitoring, early-warning, and advocacy platform for Somalia and worldwide. Built to pair with the SomCA Core plugin for automated weekly/monthly/seasonal/yearly climate data, interactive hotspot maps, and alerts.
-Version: 1.0.0
+Version: 2.0.0
 Requires at least: 6.0
 Requires PHP: 7.4
 Tested up to: 6.6
@@ -262,7 +262,14 @@ button, input, textarea, select { font-family: inherit; }
 .somca-footer-cta-inner h3 { color: #fff; margin-bottom: 0.2em; }
 .somca-footer-cta-inner p { color: #dff0df; margin: 0; }
 .somca-subscribe-form { display: flex; gap: 0.6em; }
-.somca-subscribe-form input { padding: 0.7em 1em; border-radius: 999px; border: none; min-width: 240px; }
+.somca-subscribe-form input[type="email"] { padding: 0.7em 1em; border-radius: 999px; border: none; min-width: 240px; }
+.somca-hp-field { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
+.somca-subscribe-message { margin: 0.6em 0 0; font-size: 0.85rem; min-height: 1.2em; }
+.somca-subscribe-message.is-success { color: #b6e2b6; }
+.somca-subscribe-message.is-error { color: #ffb4a8; }
+
+.somca-hazard-filter { display: flex; align-items: center; gap: 0.7em; flex-wrap: wrap; }
+.somca-hazard-filter select { padding: 0.5em 0.9em; border-radius: 8px; border: 1px solid var(--somca-border); background: var(--somca-surface); font-weight: 600; }
 
 .somca-footer-columns { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 2.5rem; padding: 3.5rem 1.5rem 2.5rem; }
 .somca-footer-brand p { color: #b7bab1; font-size: 0.9rem; }

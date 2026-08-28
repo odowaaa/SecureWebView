@@ -46,6 +46,43 @@ class SomCA_REST {
 			'callback'            => array( $this, 'get_alerts' ),
 			'permission_callback' => '__return_true',
 		) );
+
+		register_rest_route( 'somca/v1', '/stats', array(
+			'methods'             => 'GET',
+			'callback'            => array( $this, 'get_stats' ),
+			'permission_callback' => '__return_true',
+		) );
+	}
+
+	/**
+	 * Site-wide snapshot: counts + last automated fetch per cadence. Added in 2.0.0.
+	 */
+	public function get_stats( $request ) {
+		$active_alerts = get_posts( array(
+			'post_type'      => 'somca_alert',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+			'meta_query'     => array(
+				'relation' => 'OR',
+				array( 'key' => 'somca_expires_date', 'value' => gmdate( 'Y-m-d' ), 'compare' => '>=', 'type' => 'DATE' ),
+				array( 'key' => 'somca_expires_date', 'compare' => 'NOT EXISTS' ),
+			),
+		) );
+
+		return rest_ensure_response( array(
+			'hotspots'      => (int) wp_count_posts( 'somca_hotspot' )->publish,
+			'reports'       => (int) wp_count_posts( 'somca_report' )->publish,
+			'alerts_total'  => (int) wp_count_posts( 'somca_alert' )->publish,
+			'alerts_active' => count( $active_alerts ),
+			'last_fetch'    => array(
+				'weekly'   => get_option( 'somca_last_fetch_weekly', '' ),
+				'monthly'  => get_option( 'somca_last_fetch_monthly', '' ),
+				'seasonal' => get_option( 'somca_last_fetch_seasonal', '' ),
+				'yearly'   => get_option( 'somca_last_fetch_yearly', '' ),
+				'biyearly' => get_option( 'somca_last_fetch_biyearly', '' ),
+			),
+		) );
 	}
 
 	public function get_hotspots( $request ) {

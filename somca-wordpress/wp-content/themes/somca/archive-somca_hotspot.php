@@ -32,6 +32,23 @@ get_header();
 		</div>
 	<?php endif; ?>
 
+	<?php
+	$hazards        = get_terms( array( 'taxonomy' => 'somca_hazard', 'hide_empty' => true ) );
+	$selected_hazard = isset( $_GET['hazard'] ) ? sanitize_key( wp_unslash( $_GET['hazard'] ) ) : '';
+	if ( ! is_wp_error( $hazards ) && $hazards ) :
+		?>
+		<form method="get" class="somca-hazard-filter" style="margin-bottom:1.5em;">
+			<label for="somca-hazard-select"><strong><?php esc_html_e( 'Filter by hazard type:', 'somca' ); ?></strong></label>
+			<select id="somca-hazard-select" name="hazard" onchange="this.form.submit()">
+				<option value=""><?php esc_html_e( 'All Hazard Types', 'somca' ); ?></option>
+				<?php foreach ( $hazards as $hazard ) : ?>
+					<option value="<?php echo esc_attr( $hazard->slug ); ?>" <?php selected( $selected_hazard, $hazard->slug ); ?>><?php echo esc_html( $hazard->name ); ?></option>
+				<?php endforeach; ?>
+			</select>
+			<noscript><button type="submit" class="somca-btn somca-btn-outline"><?php esc_html_e( 'Apply', 'somca' ); ?></button></noscript>
+		</form>
+	<?php endif; ?>
+
 	<?php if ( have_posts() ) : ?>
 		<div class="somca-card-grid">
 			<?php while ( have_posts() ) : the_post();

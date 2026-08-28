@@ -26,11 +26,20 @@ wp-content/
   anomalies, and publishes a Climate Report. If a threshold is crossed
   (configurable in *SomCA Core → Settings*) it drafts an Alert for review.
 - **REST API** (public, read-only): `/wp-json/somca/v1/hotspots`,
-  `/wp-json/somca/v1/reports`, `/wp-json/somca/v1/alerts` — used by the map
-  and charts, and available for any external dashboard/app.
-- **Shortcodes**: `[somca_map]`, `[somca_alerts]`, `[somca_chart]`,
+  `/wp-json/somca/v1/reports`, `/wp-json/somca/v1/alerts`,
+  `/wp-json/somca/v1/stats` — used by the map and charts, and available for
+  any external dashboard/app.
+- **Shortcodes**: `[somca_map]`, `[somca_alerts]`, `[somca_chart hotspot="" region="" period="" metric=""]`,
   `[somca_latest_reports]`, `[somca_hotspots_grid]` — work in any theme.
 - **Widgets**: Active Alerts, Latest Reports.
+- **Subscribers** *(new in 2.0.0)*: a "Weekly Climate Briefing" signup form
+  (footer, on the theme) stores emails in a dedicated `wp_somca_subscribers`
+  table. Manage and export them under **SomCA Core → Subscribers**.
+- **Dashboard widget** *(new in 2.0.0)*: a "SomCA Climate Snapshot" on the
+  main wp-admin Dashboard — hotspot/report/alert/subscriber counts and the
+  last data-collection run.
+- **CSV export** *(new in 2.0.0)*: download any hotspot's full climate
+  report history as CSV, no login required.
 
 ### `somca` theme
 Built specifically around the plugin's data: hero, live alert bar, Leaflet
@@ -38,7 +47,11 @@ hotspot map, Chart.js trend charts, period tabs (weekly → bi-yearly), and
 dedicated templates for each post type. Brand colors and typography are
 lifted from the SomCA logo (black `#1a1a1a`, green `#4CAF50`, red `#D32F2F`),
 defined as CSS variables at the top of `style.css` — change them there to
-re-theme the whole site.
+re-theme the whole site. As of 2.0.0 it also ships a working newsletter
+signup and a hazard-type filter on the Hotspots archive. Requires
+SomCA Core 2.0.0+.
+
+See each package's `CHANGELOG.md` for full version history.
 
 ## Installation
 

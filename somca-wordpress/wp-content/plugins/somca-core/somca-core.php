@@ -3,7 +3,7 @@
  * Plugin Name: SomCA Core
  * Plugin URI: https://somca.org
  * Description: Core engine for Somali Climate Action (SomCA) — climate hotspots, reports, alerts, automated climate-data collection and REST/map/chart tools for the SomCA theme.
- * Version: 1.0.0
+ * Version: 2.0.0
  * Author: Somali Climate Action
  * Author URI: https://somca.org
  * License: GPL v2 or later
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SOMCA_CORE_VERSION', '1.0.0' );
+define( 'SOMCA_CORE_VERSION', '2.0.0' );
 define( 'SOMCA_CORE_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SOMCA_CORE_URL', plugin_dir_url( __FILE__ ) );
 
@@ -37,6 +37,7 @@ final class SomCA_Core {
 
 		register_activation_hook( __FILE__, array( 'SomCA_Data_Fetcher', 'activate' ) );
 		register_deactivation_hook( __FILE__, array( 'SomCA_Data_Fetcher', 'deactivate' ) );
+		register_activation_hook( __FILE__, array( 'SomCA_Subscribers', 'install_table' ) );
 		register_activation_hook( __FILE__, array( $this, 'on_activate' ) );
 	}
 
@@ -48,6 +49,9 @@ final class SomCA_Core {
 		require_once SOMCA_CORE_PATH . 'includes/class-somca-shortcodes.php';
 		require_once SOMCA_CORE_PATH . 'includes/class-somca-admin.php';
 		require_once SOMCA_CORE_PATH . 'includes/class-somca-widgets.php';
+		require_once SOMCA_CORE_PATH . 'includes/class-somca-subscribers.php';
+		require_once SOMCA_CORE_PATH . 'includes/class-somca-dashboard.php';
+		require_once SOMCA_CORE_PATH . 'includes/class-somca-export.php';
 
 		SomCA_CPT::instance();
 		SomCA_Meta::instance();
@@ -56,6 +60,9 @@ final class SomCA_Core {
 		SomCA_Shortcodes::instance();
 		SomCA_Admin::instance();
 		SomCA_Widgets::instance();
+		SomCA_Subscribers::instance();
+		SomCA_Dashboard::instance();
+		SomCA_Export::instance();
 	}
 
 	public function load_textdomain() {

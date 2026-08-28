@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SOMCA_THEME_VERSION', '1.0.0' );
+define( 'SOMCA_THEME_VERSION', '2.0.0' );
 
 require_once get_template_directory() . '/inc/template-tags.php';
 
@@ -74,6 +74,12 @@ function somca_scripts() {
 
 	wp_enqueue_script( 'somca-main', get_template_directory_uri() . '/assets/js/main.js', array(), SOMCA_THEME_VERSION, true );
 
+	wp_enqueue_script( 'somca-subscribe', get_template_directory_uri() . '/assets/js/subscribe.js', array(), SOMCA_THEME_VERSION, true );
+	wp_localize_script( 'somca-subscribe', 'SomcaSubscribe', array(
+		'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+		'nonce'   => wp_create_nonce( 'somca_subscribe_nonce' ),
+	) );
+
 	if ( is_front_page() ) {
 		wp_enqueue_style( 'leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css', array(), '1.9.4' );
 		wp_enqueue_script( 'leaflet', 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js', array(), '1.9.4', true );
@@ -129,6 +135,23 @@ function somca_search_include_cpts( $query ) {
 	}
 }
 add_action( 'pre_get_posts', 'somca_search_include_cpts' );
+
+/**
+ * Applies the ?hazard=<slug> filter on the Hotspot archive (added in 2.0.0).
+ */
+function somca_filter_hotspot_archive_by_hazard( $query ) {
+	if ( is_admin() || ! $query->is_main_query() || ! $query->is_post_type_archive( 'somca_hotspot' ) ) {
+		return;
+	}
+	if ( empty( $_GET['hazard'] ) ) {
+		return;
+	}
+	$hazard = sanitize_key( wp_unslash( $_GET['hazard'] ) );
+	$query->set( 'tax_query', array(
+		array( 'taxonomy' => 'somca_hazard', 'field' => 'slug', 'terms' => $hazard ),
+	) );
+}
+add_action( 'pre_get_posts', 'somca_filter_hotspot_archive_by_hazard' );
 
 /**
  * Fallback menu when no nav menu is assigned yet.

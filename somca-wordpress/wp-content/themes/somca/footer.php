@@ -16,13 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<h3><?php esc_html_e( 'Weekly Climate Briefing', 'somca' ); ?></h3>
 				<p><?php esc_html_e( 'Hotspot updates, new alerts, and regional data — straight to your inbox every week.', 'somca' ); ?></p>
 			</div>
-			<?php if ( is_active_sidebar( 'footer-1' ) && false ) : ?>
-			<?php else : ?>
-				<form class="somca-subscribe-form" action="<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>" method="post" onsubmit="return false;">
-					<input type="email" required placeholder="<?php esc_attr_e( 'you@example.com', 'somca' ); ?>" aria-label="<?php esc_attr_e( 'Email address', 'somca' ); ?>" />
+			<div>
+				<form id="somca-subscribe-form" class="somca-subscribe-form">
+					<input type="email" name="email" required placeholder="<?php esc_attr_e( 'you@example.com', 'somca' ); ?>" aria-label="<?php esc_attr_e( 'Email address', 'somca' ); ?>" />
+					<input type="text" name="somca_website" class="somca-hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
 					<button type="submit" class="somca-btn somca-btn-secondary"><?php esc_html_e( 'Subscribe', 'somca' ); ?></button>
 				</form>
-			<?php endif; ?>
+				<p id="somca-subscribe-message" class="somca-subscribe-message" role="status" aria-live="polite"></p>
+			</div>
 		</div>
 	</div>
 
